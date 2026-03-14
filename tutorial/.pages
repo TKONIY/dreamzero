@@ -1,0 +1,10 @@
+nav:
+  - 首页: index.md
+  - 推理流程详解: 01_inference_walkthrough.md
+  - 背景知识: 00_background_knowledge.md
+  - 阅读指南: 00_reading_guide.md
+  - 根目录文件: root
+  - 评估工具: eval_utils
+  - 脚本: scripts
+  - 核心框架: groot
+  - 进度跟踪: TODO.md
