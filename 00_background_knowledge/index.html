@@ -1,0 +1,7133 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://TKONIY.github.io/dreamzero/00_background_knowledge/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../00_reading_guide/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>背景知识 - DreamZero 代码教程</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dreamzero" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="DreamZero 代码教程" class="md-header__button md-logo" aria-label="DreamZero 代码教程" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DreamZero 代码教程
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              背景知识
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到暗色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到暗色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到亮色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到亮色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DreamZero 代码教程" class="md-nav__button md-logo" aria-label="DreamZero 代码教程" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DreamZero 代码教程
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    背景知识
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    背景知识
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 机器人学习领域简介
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 机器人学习领域简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 问题定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-imitation-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 模仿学习 (Imitation Learning)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 关键挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-vla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 视觉语言动作模型 (VLA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 视觉语言动作模型 (VLA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-vla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 什么是 VLA？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-vla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 VLA 的核心组件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 动作空间
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-world-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 世界模型 (World Models)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 世界模型 (World Models)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 核心思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 为什么世界模型对机器人有用？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-world-action-model-wam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 世界动作模型 (World Action Model, WAM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-diffusion-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 扩散模型 (Diffusion Models) 基础
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 扩散模型 (Diffusion Models) 基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 直觉理解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 扩散模型为什么适合机器人？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-dreamzero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 在 DreamZero 中的应用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-flow-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Flow Matching 技术
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Flow Matching 技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-flow-matching-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Flow Matching vs. 传统扩散
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 数学直觉
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-timestep-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 时间步调度 (Timestep Scheduling)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 视频生成与动作预测的联合学习
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 视频生成与动作预测的联合学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 核心洞察
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 联合训练机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-dit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 DiT 缓存推理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-autoregressive-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 自回归推理 (Autoregressive Inference)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-dreamzero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. DreamZero 系统架构总览
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. DreamZero 系统架构总览">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 整体架构图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 代码模块结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 数据流详解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 关键术语速查表
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_reading_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    阅读指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../root/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    根目录文件
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    根目录文件
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../root/pyproject/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pyproject.toml — 项目构建与依赖配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../root/socket_test_optimized_AR/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    socket_test_optimized_AR.py — DreamZero 分布式推理服务端
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../root/test_client_AR/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    test_client_AR.py — AR_droid 策略服务端测试客户端
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../eval_utils/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    评估工具
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    评估工具
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eval_utils/policy_client/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    policy_client.py — WebSocket 策略推理客户端
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eval_utils/policy_server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    policy_server.py — WebSocket 策略推理服务器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eval_utils/run_sim_eval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    run_sim_eval.py — 仿真环境策略评估主脚本
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../scripts/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    脚本
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    脚本
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/compare_loss/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DreamZero 损失曲线对比脚本详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/open_loop_yam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DreamZero YAM 开环评估脚本详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../scripts/data/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/data/convert_agibot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DreamZero AGIBot 数据转换脚本详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/data/convert_droid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DreamZero DROID 数据转换脚本详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/data/convert_lerobot_to_gear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DreamZero LeRobot 到 GEAR 格式转换脚本详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../scripts/train/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Train
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Train
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/train/agibot_training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DreamZero AGIBot 训练脚本详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/train/droid_training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DROID 训练脚本说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/train/droid_training_full_finetune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DreamZero DROID 全参数微调训练脚本详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/train/droid_training_lora/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DreamZero DROID LoRA 训练脚本详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/train/yam_training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DreamZero YAM 训练脚本详解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    核心框架
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    核心框架
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vla
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vla
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/common/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_2" id="__nav_7_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Common
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/common/utils/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utils
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_2_2" id="__nav_7_2_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Utils
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_2_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/common/utils/data_structure/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data structure
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_2_2_2" id="__nav_7_2_2_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_7_2_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data structure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/data_structure/shape_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    shape_utils.py - 形状推断工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/data_structure/tree_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    tree_utils.py - 嵌套数据结构工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_2_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/common/utils/io/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Io
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_2_2_3" id="__nav_7_2_2_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_7_2_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Io
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/io/config_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    config_utils.py - 配置管理工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/io/file_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    file_utils.py - 文件系统工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/io/hdf5_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    hdf5_utils.py - HDF5 数据工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/io/json_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    json_utils.py - JSON/YAML 数据工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/io/print_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    print_utils.py - 打印与日志工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/io/termcolor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    termcolor.py - 终端彩色输出
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_2_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/common/utils/misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Misc
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_2_2_4" id="__nav_7_2_2_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_7_2_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Misc
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/misc/array_tensor_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    array_tensor_utils.py - 数组与张量通用操作工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/misc/functional_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    functional_utils.py - 函数式编程与元编程工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/misc/image_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    image_utils.py - 图像处理工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/misc/misc_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    misc_utils.py - 杂项工具函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/misc/torch_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    torch_utils.py - PyTorch 工具集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/common/utils/misc/video_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    video_utils.py - 视频处理工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/configs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_3" id="__nav_7_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/configs/conf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    conf.yaml -- DreamZero VLA 主配置文件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/configs/data/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_3_3" id="__nav_7_2_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_3_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/configs/data/dreamzero/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dreamzero
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_3_3_2" id="__nav_7_2_3_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_7_2_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dreamzero
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/configs/data/dreamzero/agibot_relative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    agibot_relative.yaml -- AGIBot 数据集配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/configs/data/dreamzero/base_48_wan_fine_aug_relative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    base_48_wan_fine_aug_relative.yaml -- 基础数据管道配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/configs/data/dreamzero/droid_relative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    droid_relative.yaml -- DROID 数据集配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/configs/data/dreamzero/yam_relative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    yam_relative.yaml -- YAM 数据集配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/configs/deepspeed/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deepspeed
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_3_4" id="__nav_7_2_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_2_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deepspeed
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/configs/deepspeed/zero2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    zero2.json -- DeepSpeed ZeRO Stage 2 配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/configs/deepspeed/zero2_offload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    zero2_offload.json -- DeepSpeed ZeRO Stage 2 + CPU 卸载配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/configs/deepspeed/zero3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    zero3.json -- DeepSpeed ZeRO Stage 3 配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/configs/model/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_3_5" id="__nav_7_2_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_2_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Model
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_3_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/configs/model/dreamzero/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dreamzero
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_3_5_2" id="__nav_7_2_3_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_7_2_3_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_3_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dreamzero
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/configs/model/dreamzero/vla/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vla.yaml -- DreamZero VLA 模型配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_3_5_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/configs/model/dreamzero/action_head/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Action head
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_3_5_2_3" id="__nav_7_2_3_5_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_7_2_3_5_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_3_5_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Action head
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/configs/model/dreamzero/action_head/wan_flow_matching_action_tf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wan_flow_matching_action_tf.yaml -- WAN Flow Matching 动作头配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_3_5_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/configs/model/dreamzero/backbone/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backbone
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_3_5_2_4" id="__nav_7_2_3_5_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_7_2_3_5_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_3_5_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Backbone
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/configs/model/dreamzero/backbone/identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    identity.yaml -- Identity 骨干网络配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_3_5_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/configs/model/dreamzero/transform/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transform
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_3_5_2_5" id="__nav_7_2_3_5_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_7_2_3_5_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_3_5_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Transform
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/configs/model/dreamzero/transform/base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    base.yaml -- 机器人体型映射基础配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/configs/model/dreamzero/transform/dreamzero_cotrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dreamzero_cotrain.yaml -- DreamZero 联合训练数据变换配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/data/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_4" id="__nav_7_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_4_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/data/conversion/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conversion
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_4_2" id="__nav_7_2_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Conversion
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_4_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/data/conversion/gr1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gr1
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_4_2_2" id="__nav_7_2_4_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_7_2_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gr1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/conversion/gr1/constants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GR1 数据常量定义 (groot/vla/data/conversion/gr1/constants.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/conversion/gr1/get_initial_actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    初始动作提取工具 (groot/vla/data/conversion/gr1/get_initial_actions.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/data/dataset/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_4_3" id="__nav_7_2_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_2_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dataset
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/dataset/lerobot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LeRobot 数据集核心实现 (groot/vla/data/dataset/lerobot.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/dataset/lerobot_sharded/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    分片 LeRobot 数据集 (groot/vla/data/dataset/lerobot_sharded.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/dataset/macro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常量定义 (groot/vla/data/dataset/macro.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/dataset/metadata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    元数据工具 (groot/vla/data/dataset/metadata.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/dataset/registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据集注册表 (groot/vla/data/dataset/registry.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_4_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/data/schema/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_4_4" id="__nav_7_2_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_2_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Schema
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/schema/embodiment_tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embodiment 标签枚举 (groot/vla/data/schema/embodiment_tags.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/schema/lerobot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LeRobot 数据模式定义 (groot/vla/data/schema/lerobot.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_4_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/data/transform/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transform
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_4_5" id="__nav_7_2_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_2_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Transform
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/transform/base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    变换基类定义 (groot/vla/data/transform/base.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/transform/concat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    拼接变换 (groot/vla/data/transform/concat.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/transform/language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    语言变换 (groot/vla/data/transform/language.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/transform/state_action/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    状态/动作变换 (groot/vla/data/transform/state_action.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/data/transform/video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频变换 (groot/vla/data/transform/video.py)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/experiment/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experiment
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_5" id="__nav_7_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Experiment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/experiment/base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    base.py — 训练框架基础组件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/experiment/experiment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    experiment.py — VLA 实验与训练器实现
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/experiment/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utils.py — 训练工具函数集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/model/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_6" id="__nav_7_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Model
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_6_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/model/dreamzero/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dreamzero
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_6_2" id="__nav_7_2_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_2_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dreamzero
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/base_vla/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    base_vla.py -- VLA 模型基类（视觉-语言-动作架构）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_6_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/model/dreamzero/action_head/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Action head
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_6_2_3" id="__nav_7_2_6_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_7_2_6_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_6_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Action head
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/action_head/wan_flow_matching_action_tf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wan_flow_matching_action_tf.py -- 基于 Wan 视频模型的 Flow Matching 动作头
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_6_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/model/dreamzero/backbone/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backbone
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_6_2_4" id="__nav_7_2_6_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_7_2_6_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_6_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Backbone
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/backbone/base_backbone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    base_backbone.py -- Backbone 抽象基类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/backbone/identity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    identity.py -- 恒等 Backbone（Identity Backbone）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_6_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/model/dreamzero/modules/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_6_2_5" id="__nav_7_2_6_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_7_2_6_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_6_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    attention.py -- 基础注意力函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/cudnn_attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cudnn_attention.py -- cuDNN 融合注意力
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/flow_match_scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flow_match_scheduler.py -- Flow Matching 调度器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/flow_unipc_multistep_scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    flow_unipc_multistep_scheduler.py -- Flow UniPC 多步调度器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utils.py -- 通用工具函数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/vram_management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    vram_management.py -- GPU 显存管理模块
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/wan2_1_attention/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wan2_1_attention.py -- Wan2.1 注意力模块
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/wan2_1_submodule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wan2_1_submodule.py -- Wan2.1 DiT 子模块集合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/wan_video_camera_controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wan_video_camera_controller.py -- 相机控制模块
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/wan_video_dit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wan_video_dit.py -- Wan 视频扩散 Transformer（DiT）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/wan_video_dit_action_casual_chunk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wan_video_dit_action_casual_chunk.py -- 因果式动作-视频联合 DiT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/wan_video_image_encoder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wan_video_image_encoder.py -- Wan 图像编码器（CLIP ViT）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/wan_video_text_encoder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wan_video_text_encoder.py -- Wan 文本编码器（UMT5）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/wan_video_vae/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wan_video_vae.py -- Wan 视频 VAE（变分自编码器）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_6_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/model/dreamzero/transform/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transform
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_6_2_6" id="__nav_7_2_6_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_7_2_6_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_6_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Transform
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/transform/common/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    common.py -- 通用文本处理工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/transform/dreamzero_cotrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dreamzero_cotrain.py -- DreamZero 联合训练数据变换
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_6_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/model/n1_5/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    N1 5
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_6_3" id="__nav_7_2_6_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_2_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    N1 5
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/n1_5/sim_policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sim_policy.py -- 仿真推理策略管理器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_6_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/model/n1_5/action_head/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Action head
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_6_3_3" id="__nav_7_2_6_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_7_2_6_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_6_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Action head
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/n1_5/action_head/base_action_head/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    base_action_head.py -- 动作头抽象基类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_6_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/model/n1_5/modules/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_6_3_4" id="__nav_7_2_6_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_7_2_6_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_6_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/n1_5/modules/action_encoder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    action_encoder.py -- 动作编码器（基于 Pi0）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../groot/vla/utils/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utils
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_2_7" id="__nav_7_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Utils
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/utils/action_args_override_utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    action_args_override_utils.py — 动作参数配置覆盖工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groot/vla/utils/timer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    timer.py — 可嵌套的上下文计时器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TODO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进度跟踪
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 机器人学习领域简介
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 机器人学习领域简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 问题定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-imitation-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 模仿学习 (Imitation Learning)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 关键挑战
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-vla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 视觉语言动作模型 (VLA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 视觉语言动作模型 (VLA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-vla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 什么是 VLA？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-vla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 VLA 的核心组件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 动作空间
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-world-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 世界模型 (World Models)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 世界模型 (World Models)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 核心思想
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 为什么世界模型对机器人有用？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-world-action-model-wam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 世界动作模型 (World Action Model, WAM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-diffusion-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 扩散模型 (Diffusion Models) 基础
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 扩散模型 (Diffusion Models) 基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 直觉理解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 扩散模型为什么适合机器人？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-dreamzero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 在 DreamZero 中的应用
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-flow-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Flow Matching 技术
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Flow Matching 技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-flow-matching-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Flow Matching vs. 传统扩散
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 数学直觉
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-timestep-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 时间步调度 (Timestep Scheduling)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 视频生成与动作预测的联合学习
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 视频生成与动作预测的联合学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 核心洞察
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 联合训练机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-dit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 DiT 缓存推理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-autoregressive-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 自回归推理 (Autoregressive Inference)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-dreamzero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. DreamZero 系统架构总览
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. DreamZero 系统架构总览">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 整体架构图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 代码模块结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 数据流详解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 关键术语速查表
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="dreamzero">背景知识：从零理解 DreamZero<a class="headerlink" href="#dreamzero" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>本文档面向没有机器人学习或生成模型背景的读者。阅读完本文后，你将具备理解 DreamZero 代码库所需的全部概念基础。</p>
+</blockquote>
+<hr />
+<h2 id="_1">目录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-机器人学习领域简介">机器人学习领域简介</a></li>
+<li><a href="#2-视觉语言动作模型-vla">视觉语言动作模型 (VLA)</a></li>
+<li><a href="#3-世界模型-world-models">世界模型 (World Models)</a></li>
+<li><a href="#4-扩散模型-diffusion-models-基础">扩散模型 (Diffusion Models) 基础</a></li>
+<li><a href="#5-flow-matching-技术">Flow Matching 技术</a></li>
+<li><a href="#6-视频生成与动作预测的联合学习">视频生成与动作预测的联合学习</a></li>
+<li><a href="#7-dreamzero-系统架构总览">DreamZero 系统架构总览</a></li>
+<li><a href="#8-关键术语速查表">关键术语速查表</a></li>
+</ol>
+<hr />
+<h2 id="1">1. 机器人学习领域简介<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 问题定义<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>机器人学习的核心问题是：<strong>如何让机器人通过数据学会执行任务？</strong></p>
+<p>传统的机器人控制依赖人工编程——工程师为每个任务编写精确的运动轨迹。这种方式在工厂流水线上运行良好，但面对开放世界中的多样化任务（比如"把红色杯子放到架子上"）则力不从心。</p>
+<p>机器人学习试图从<strong>示范数据</strong>中自动习得控制策略。一个典型的流程是：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>人类操作员演示任务 --&gt; 收集(图像, 动作)数据对 --&gt; 训练模型 --&gt; 模型预测机器人动作
+</code></pre></div>
+<h3 id="12-imitation-learning">1.2 模仿学习 (Imitation Learning)<a class="headerlink" href="#12-imitation-learning" title="Permanent link">&para;</a></h3>
+<p>模仿学习是当前机器人学习的主流范式。核心思路很简单：</p>
+<ul>
+<li><strong>输入</strong>: 机器人当前看到的图像（通常来自多个摄像头）+ 语言指令（如"拿起杯子"）</li>
+<li><strong>输出</strong>: 机器人应该执行的动作序列（如关节角度变化、末端执行器位移等）</li>
+</ul>
+<p>模型通过大量人类演示数据学习这种"观察 -&gt; 动作"的映射关系。</p>
+<h3 id="13">1.3 关键挑战<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>泛化性</strong>: 训练时见过"拿红色杯子"，能否推广到"拿蓝色杯子"？</li>
+<li><strong>多模态动作分布</strong>: 同一个任务可能有多种合理的执行方式</li>
+<li><strong>数据效率</strong>: 机器人数据采集成本极高</li>
+<li><strong>跨机器人迁移</strong>: 在一个机器人上学到的知识能否迁移到另一个机器人？</li>
+</ul>
+<p>DreamZero 通过利用大规模视频生成模型的预训练知识来应对这些挑战。</p>
+<hr />
+<h2 id="2-vla">2. 视觉语言动作模型 (VLA)<a class="headerlink" href="#2-vla" title="Permanent link">&para;</a></h2>
+<h3 id="21-vla">2.1 什么是 VLA？<a class="headerlink" href="#21-vla" title="Permanent link">&para;</a></h3>
+<p>VLA (Vision-Language-Action) 模型是一类将<strong>视觉理解</strong>、<strong>语言理解</strong>和<strong>动作生成</strong>统一在一个模型中的系统。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>传统方案 (分离式):
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  感知模块(视觉) --&gt; 规划模块(语言理解) --&gt; 控制模块(动作)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  各模块独立训练，信息传递有损
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>VLA 方案 (统一式):
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  [图像 + 语言指令] --&gt; 单一大模型 --&gt; 动作序列
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>  端到端学习，信息无损传递
+</code></pre></div>
+<h3 id="22-vla">2.2 VLA 的核心组件<a class="headerlink" href="#22-vla" title="Permanent link">&para;</a></h3>
+<p>一个 VLA 模型通常包含以下部分：</p>
+<ol>
+<li><strong>视觉编码器</strong>: 将摄像头图像转换为特征向量</li>
+<li><strong>语言编码器</strong>: 将自然语言指令转换为特征向量</li>
+<li><strong>融合骨干网络 (Backbone)</strong>: 将视觉和语言特征融合</li>
+<li><strong>动作头 (Action Head)</strong>: 基于融合特征生成具体的动作序列</li>
+</ol>
+<p>在 DreamZero 中，这些组件对应的代码结构为：</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>代码位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>整体 VLA 架构</td>
+<td><code>groot/vla/model/dreamzero/base_vla.py</code></td>
+</tr>
+<tr>
+<td>视觉编码器</td>
+<td><code>groot/vla/model/dreamzero/modules/wan_video_image_encoder.py</code></td>
+</tr>
+<tr>
+<td>语言编码器</td>
+<td><code>groot/vla/model/dreamzero/modules/wan_video_text_encoder.py</code></td>
+</tr>
+<tr>
+<td>骨干网络</td>
+<td><code>groot/vla/model/dreamzero/backbone/</code></td>
+</tr>
+<tr>
+<td>动作头</td>
+<td><code>groot/vla/model/dreamzero/action_head/wan_flow_matching_action_tf.py</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="23">2.3 动作空间<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>DreamZero 预测的"动作"是一个具体的数值向量，包含：</p>
+<ul>
+<li><strong>末端执行器位移</strong> (x, y, z 方向的移动量)</li>
+<li><strong>末端执行器旋转</strong> (姿态变化)</li>
+<li><strong>夹爪开合</strong> (抓取或释放)</li>
+</ul>
+<p>这些数值被组织成 <code>(action_horizon, action_dim)</code> 的张量，其中：
+- <code>action_horizon</code> = 24：模型一次预测未来 24 步的动作
+- <code>action_dim</code>：每步动作的维度（取决于具体的机器人构型）</p>
+<hr />
+<h2 id="3-world-models">3. 世界模型 (World Models)<a class="headerlink" href="#3-world-models" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 核心思想<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>世界模型是一种能够<strong>预测未来状态</strong>的模型。给定当前状态和动作，世界模型可以"想象"出未来会发生什么。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>世界模型的&quot;想象&quot;过程:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  当前观察(图像) + 动作 --&gt; 世界模型 --&gt; 预测的未来观察(视频)
+</code></pre></div>
+<p>这类似于人类的心理模拟能力——你在伸手拿杯子之前，大脑已经"预演"了手臂的运动轨迹和杯子被拿起的画面。</p>
+<h3 id="32">3.2 为什么世界模型对机器人有用？<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>隐含物理理解</strong>: 一个能准确预测视频的模型必然理解物体的物理属性（重力、碰撞、刚体/柔体等）</li>
+<li><strong>数据增强</strong>: 可以通过"想象"来生成额外的训练数据</li>
+<li><strong>规划</strong>: 可以在"想象空间"中评估不同动作方案的效果</li>
+</ol>
+<h3 id="33-world-action-model-wam">3.3 世界动作模型 (World Action Model, WAM)<a class="headerlink" href="#33-world-action-model-wam" title="Permanent link">&para;</a></h3>
+<p>DreamZero 提出了 <strong>World Action Model (WAM)</strong> 的概念——将世界模型和动作策略<strong>联合训练</strong>：</p>
+<ul>
+<li>模型同时学习<strong>预测未来视频帧</strong>和<strong>输出动作序列</strong></li>
+<li>视频预测任务迫使模型建立对物理世界的深层理解</li>
+<li>这种理解自然地迁移到动作预测中，使得模型具有强大的零样本泛化能力</li>
+</ul>
+<hr />
+<h2 id="4-diffusion-models">4. 扩散模型 (Diffusion Models) 基础<a class="headerlink" href="#4-diffusion-models" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 直觉理解<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>扩散模型的核心思想可以用一个比喻来理解：</p>
+<p><strong>前向过程</strong> (加噪): 想象一滴墨水滴入清水——墨水逐渐扩散，最终变成均匀的淡色水。</p>
+<p><strong>反向过程</strong> (去噪): 如果你能"倒放"这个过程，就能从一杯淡色水中还原出最初的墨滴形状。</p>
+<p>在数学上：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>前向过程 (训练时):
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  干净数据 x0 --&gt; 加入噪声 --&gt; ... --&gt; 加入更多噪声 --&gt; 纯噪声 xT
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>反向过程 (推理时):
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  纯噪声 xT --&gt; 模型去噪 --&gt; ... --&gt; 模型继续去噪 --&gt; 生成数据 x0
+</code></pre></div>
+<h3 id="42">4.2 扩散模型为什么适合机器人？<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p>传统的回归模型在面对<strong>多模态分布</strong>时表现不佳。例如，绕过障碍物可以从左边绕或从右边绕，回归模型可能预测出"从中间穿过"这种无效动作。</p>
+<p>扩散模型天然地处理多模态分布——它可以从同一个噪声出发，生成左绕或右绕两种合理的轨迹。</p>
+<h3 id="43-dreamzero">4.3 在 DreamZero 中的应用<a class="headerlink" href="#43-dreamzero" title="Permanent link">&para;</a></h3>
+<p>DreamZero 使用扩散过程来同时生成：
+- <strong>视频帧</strong>: 预测机器人执行动作后的视觉画面
+- <strong>动作序列</strong>: 预测机器人应该执行的具体动作</p>
+<p>两者在同一个扩散/去噪过程中联合生成。相关代码位于：
+- <code>groot/vla/model/dreamzero/modules/flow_match_scheduler.py</code>
+- <code>groot/vla/model/dreamzero/modules/flow_unipc_multistep_scheduler.py</code></p>
+<hr />
+<h2 id="5-flow-matching">5. Flow Matching 技术<a class="headerlink" href="#5-flow-matching" title="Permanent link">&para;</a></h2>
+<h3 id="51-flow-matching-vs">5.1 Flow Matching vs. 传统扩散<a class="headerlink" href="#51-flow-matching-vs" title="Permanent link">&para;</a></h3>
+<p>Flow Matching 是扩散模型的一种现代改进。传统扩散模型需要数百步去噪，而 Flow Matching 构建了一条从噪声到数据的<strong>直线路径</strong>，大幅减少所需步数。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>传统扩散模型:
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  噪声 --弯曲路径(数百步)--&gt; 数据
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  每步微小调整，路径不直接
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Flow Matching:
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  噪声 --直线路径(数十步)--&gt; 数据
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  学习速度场，沿最优路径传输
+</code></pre></div>
+<h3 id="52">5.2 数学直觉<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<p>Flow Matching 的核心是学习一个<strong>速度场</strong> v(x, t)，它告诉你在时刻 t、位于 x 时，应该朝哪个方向、以多大速度移动，才能从噪声到达目标数据。</p>
+<p>训练目标非常简洁：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>损失函数 = || v_模型(x_t, t) - (x_1 - x_0) ||^2
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>其中:
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  x_0 = 纯噪声
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  x_1 = 目标数据（视频帧 / 动作序列）
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  x_t = t * x_1 + (1-t) * x_0  （线性插值）
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  v_模型 = 神经网络预测的速度
+</code></pre></div>
+<h3 id="53-timestep-scheduling">5.3 时间步调度 (Timestep Scheduling)<a class="headerlink" href="#53-timestep-scheduling" title="Permanent link">&para;</a></h3>
+<p>DreamZero 使用 shift 参数来调整时间步分布，使模型在不同噪声级别上分配不同的计算量。这在代码中对应 <code>FlowMatchScheduler</code> 类：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># 核心公式（来自 flow_match_scheduler.py）</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">sigmas</span> <span class="o">=</span> <span class="n">shift</span> <span class="o">*</span> <span class="n">sigmas</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">shift</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigmas</span><span class="p">)</span>
+</code></pre></div>
+<p><code>shift</code> 参数控制时间步的非线性映射——较大的 shift 值会让模型在去噪早期（噪声较大时）花费更多步骤。</p>
+<hr />
+<h2 id="6">6. 视频生成与动作预测的联合学习<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1 核心洞察<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<p>DreamZero 的关键创新在于：<strong>视频生成和动作预测共享同一个模型骨干 (Wan2.1-I2V-14B)</strong>。</p>
+<p>为什么这样做有效？</p>
+<ol>
+<li>Wan2.1 是一个在海量互联网视频上预训练的 140 亿参数视频生成模型</li>
+<li>它已经学会了丰富的视觉世界知识（物体运动、物理规律、空间关系等）</li>
+<li>DreamZero 将动作预测"嫁接"到这个视频模型上，复用其世界知识</li>
+</ol>
+<h3 id="62">6.2 联合训练机制<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<p>在训练时，模型同时优化两个目标：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>总损失 = 视频生成损失 + 动作预测损失
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>视频生成损失: 预测的视频帧 vs. 真实的未来视频帧
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>动作预测损失: 预测的动作序列 vs. 人类演示的动作序列
+</code></pre></div>
+<p>两个任务的梯度流经同一个 DiT (Diffusion Transformer) 骨干网络，形成互利的学习信号：</p>
+<ul>
+<li>视频预测迫使模型理解场景中的物理交互</li>
+<li>动作预测引导模型关注与控制相关的视觉特征</li>
+</ul>
+<h3 id="63-dit">6.3 DiT 缓存推理<a class="headerlink" href="#63-dit" title="Permanent link">&para;</a></h3>
+<p>推理时，DreamZero 使用 DiT 缓存 (<code>--enable-dit-cache</code>) 来加速。原理是：在多步去噪过程中，相邻步之间的 DiT 中间特征变化很小，因此可以缓存并复用部分计算结果。</p>
+<p>这将推理速度从数秒优化到 GB200 上约 0.6 秒。</p>
+<h3 id="64-autoregressive-inference">6.4 自回归推理 (Autoregressive Inference)<a class="headerlink" href="#64-autoregressive-inference" title="Permanent link">&para;</a></h3>
+<p>DreamZero 支持自回归推理模式：模型生成一段视频和动作后，将生成的最后一帧作为下一轮的输入，持续生成后续的视频和动作。这使得模型能够处理任意长度的任务。</p>
+<p>代码中的 <code>socket_test_optimized_AR.py</code> 中的 "AR" 即代表 Autoregressive。</p>
+<hr />
+<h2 id="7-dreamzero">7. DreamZero 系统架构总览<a class="headerlink" href="#7-dreamzero" title="Permanent link">&para;</a></h2>
+<h3 id="71">7.1 整体架构图<a class="headerlink" href="#71" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>+===========================================================================+
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>|                        DreamZero 系统架构                                  |
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>+===========================================================================+
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>|                                                                           |
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>|  输入层                                                                    |
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>|  +------------------+  +------------------+  +------------------+         |
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>|  | 摄像头图像 (3视角) |  | 语言指令         |  | 机器人本体状态    |         |
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>|  | exterior_1_left  |  | &quot;拿起红色杯子&quot;   |  | 关节角度/位置     |         |
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>|  | exterior_2_left  |  +--------+---------+  +--------+---------+         |
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>|  | wrist_left       |           |                     |                   |
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>|  +--------+---------+           |                     |                   |
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>|           |                     |                     |                   |
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>|           v                     v                     v                   |
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>|  +--------+---------+  +-------+--------+   +--------+---------+         |
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>|  | CLIP 图像编码器   |  | UMT5-XXL       |   | 状态编码器        |         |
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>|  | (wan_video_       |  | 文本编码器      |   | (state_action    |         |
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>|  |  image_encoder)   |  | (wan_video_    |   |  transform)      |         |
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>|  +--------+---------+  |  text_encoder) |   +--------+---------+         |
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>|           |             +-------+--------+            |                   |
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>|           |                     |                     |                   |
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>|           +----------+----------+---------------------+                   |
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>|                      |                                                    |
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>|                      v                                                    |
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>|  +-------------------+---------------------------------------------------+
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>|  |            Wan2.1-I2V-14B DiT 骨干网络                                 |
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>|  |    (wan_video_dit_action_casual_chunk.py)                              |
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>|  |                                                                        |
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>|  |  +-------------------------------+  +-----------------------------+    |
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>|  |  |   视频 Latent 去噪通道         |  |   动作 Latent 去噪通道      |    |
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>|  |  |   (Flow Matching)             |  |   (Flow Matching)           |    |
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>|  |  |                               |  |                             |    |
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>|  |  |  噪声 z_T --&gt; ... --&gt; z_0     |  |  噪声 a_T --&gt; ... --&gt; a_0   |    |
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>|  |  +---------------+---------------+  +-------------+---------------+    |
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>|  |                  |                                |                    |
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>|  +------------------+--------------------------------+--------------------+
+<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>|                     |                                |                    |
+<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>|                     v                                v                    |
+<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>|  +------------------+---------------+  +-------------+---------------+    |
+<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a>|  |      VAE 解码器                  |  |    动作解码                  |    |
+<a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>|  |   (wan_video_vae.py)             |  |   (action_head)             |    |
+<a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>|  +------------------+---------------+  +-------------+---------------+    |
+<a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a>|                     |                                |                    |
+<a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a>|                     v                                v                    |
+<a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a>|  +------------------+---------------+  +-------------+---------------+    |
+<a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a>|  |    预测视频帧 (用于可视化)        |  |  动作序列 (发送给机器人)     |    |
+<a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a>|  |    33帧 x 176x320               |  |  (action_horizon, action_dim)|    |
+<a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a>|  +----------------------------------+  +-----------------------------+    |
+<a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a>|                                                                           |
+<a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a>+===========================================================================+
+</code></pre></div>
+<h3 id="72">7.2 代码模块结构<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>dreamzero/
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>|
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>|-- socket_test_optimized_AR.py    # 推理服务器入口 (WebSocket, 分布式)
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>|-- test_client_AR.py              # 测试客户端
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>|
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>|-- groot/vla/                     # 核心框架
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>|   |-- model/dreamzero/           # 模型定义
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>|   |   |-- base_vla.py            #   VLA 基类 (Backbone + ActionHead)
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>|   |   |-- action_head/           #   动作头 (Flow Matching 动作生成)
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>|   |   |-- backbone/              #   骨干网络 (Identity, 即直接使用 DiT)
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>|   |   |-- modules/               #   核心模块
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>|   |   |   |-- wan_video_dit*.py  #     DiT 主体 (视频+动作联合去噪)
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>|   |   |   |-- wan_video_vae.py   #     视频 VAE 编解码
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>|   |   |   |-- wan_video_text_encoder.py   # 文本编码
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>|   |   |   |-- wan_video_image_encoder.py  # 图像编码
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>|   |   |   |-- flow_match_scheduler.py     # Flow Matching 调度器
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>|   |   |   |-- attention.py / cudnn_attention.py  # 注意力机制
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>|   |   |   +-- vram_management.py          # 显存管理
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>|   |   +-- transform/             #   数据预处理 pipeline
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>|   |
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>|   |-- data/                      # 数据处理
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>|   |   |-- dataset/               #   数据集加载 (LeRobot 格式)
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>|   |   |-- schema/                #   数据模式定义 (embodiment 标签)
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>|   |   +-- transform/             #   数据变换 (视频、语言、状态)
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>|   |
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>|   |-- experiment/                # 训练实验管理
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>|   |-- configs/                   # Hydra 配置文件
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>|   +-- common/utils/              # 通用工具函数
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>|
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>|-- scripts/
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>|   |-- train/                     # 训练脚本 (DROID/AgiBot/YAM)
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a>|   +-- data/                      # 数据转换脚本
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a>|
+<a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a>+-- eval_utils/                    # 仿真评估工具
+</code></pre></div>
+<h3 id="73">7.3 数据流详解<a class="headerlink" href="#73" title="Permanent link">&para;</a></h3>
+<p><strong>训练时的数据流:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>  LeRobot 数据集
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>       |
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>       v
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>  数据变换 Pipeline (transform/)
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  [视频帧采样] --&gt; [图像增强/缩放] --&gt; [动作归一化] --&gt; [语言 tokenize]
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>       |
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>       v
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>  模型前向传播
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>  [加噪声到视频 latent 和动作] --&gt; [DiT 预测噪声/速度] --&gt; [计算 Flow Matching 损失]
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>       |
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>       v
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>  DeepSpeed ZeRO-2 反向传播 + 参数更新
+</code></pre></div>
+<p><strong>推理时的数据流:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>  WebSocket 接收观察数据
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>       |
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>       v
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>  编码: 图像 --&gt; CLIP, 文本 --&gt; UMT5, 状态 --&gt; 编码器
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>       |
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>       v
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>  初始化纯噪声 (视频 latent + 动作 latent)
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>       |
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>       v
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>  多步去噪 (Flow Matching, 约 10-50 步)
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>  [DiT 缓存加速] --&gt; 每步更新 latent
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>       |
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>       v
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>  解码: 视频 latent --&gt; VAE --&gt; 视频帧 (可视化)
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>         动作 latent --&gt; 动作头 --&gt; 动作序列
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>       |
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>       v
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>  WebSocket 返回动作给机器人控制器
+</code></pre></div>
+<hr />
+<h2 id="8">8. 关键术语速查表<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>英文</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>世界动作模型</td>
+<td>World Action Model (WAM)</td>
+<td>同时预测未来视频和动作的模型</td>
+</tr>
+<tr>
+<td>视觉语言动作模型</td>
+<td>Vision-Language-Action (VLA)</td>
+<td>统一处理视觉、语言、动作的端到端模型</td>
+</tr>
+<tr>
+<td>扩散模型</td>
+<td>Diffusion Model</td>
+<td>通过逐步去噪从噪声生成数据的生成模型</td>
+</tr>
+<tr>
+<td>Flow Matching</td>
+<td>Flow Matching</td>
+<td>学习从噪声到数据的直线传输路径的生成方法</td>
+</tr>
+<tr>
+<td>DiT</td>
+<td>Diffusion Transformer</td>
+<td>使用 Transformer 架构的扩散模型</td>
+</tr>
+<tr>
+<td>VAE</td>
+<td>Variational Autoencoder</td>
+<td>将高维数据压缩到低维 latent 空间的编解码器</td>
+</tr>
+<tr>
+<td>Latent 空间</td>
+<td>Latent Space</td>
+<td>数据的压缩表示空间，模型在此空间中进行去噪</td>
+</tr>
+<tr>
+<td>动作地平线</td>
+<td>Action Horizon</td>
+<td>模型一次预测的未来动作步数 (DreamZero 中为 24)</td>
+</tr>
+<tr>
+<td>零样本</td>
+<td>Zero-shot</td>
+<td>无需在目标任务上额外训练即可完成该任务</td>
+</tr>
+<tr>
+<td>LoRA</td>
+<td>Low-Rank Adaptation</td>
+<td>通过低秩矩阵高效微调大模型的方法</td>
+</tr>
+<tr>
+<td>DeepSpeed ZeRO</td>
+<td>DeepSpeed ZeRO</td>
+<td>分布式训练中的显存优化策略</td>
+</tr>
+<tr>
+<td>Embodiment</td>
+<td>Embodiment</td>
+<td>机器人本体/构型 (如 DROID、AgiBot、YAM)</td>
+</tr>
+<tr>
+<td>DROID</td>
+<td>DROID</td>
+<td>一个大规模多机器人操作数据集</td>
+</tr>
+<tr>
+<td>LeRobot</td>
+<td>LeRobot</td>
+<td>HuggingFace 的机器人学习数据格式标准</td>
+</tr>
+<tr>
+<td>Wan2.1-I2V-14B</td>
+<td>Wan2.1-I2V-14B</td>
+<td>DreamZero 使用的 140 亿参数视频生成基座模型</td>
+</tr>
+<tr>
+<td>UMT5-XXL</td>
+<td>UMT5-XXL</td>
+<td>用于语言编码的多语言 T5 模型</td>
+</tr>
+<tr>
+<td>自回归推理</td>
+<td>Autoregressive Inference</td>
+<td>将上一步的输出作为下一步的输入，循环生成</td>
+</tr>
+<tr>
+<td>DiT 缓存</td>
+<td>DiT Cache</td>
+<td>复用相邻去噪步的中间特征以加速推理</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><strong>下一步</strong>: 请阅读 <a href="../00_reading_guide/">阅读指南</a>，了解如何根据你的目标选择最佳的代码阅读路径。</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
