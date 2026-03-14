@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://TKONIY.github.io/dreamzero/groot/vla/model/dreamzero/modules/wan2_1_submodule/">
+        <link rel="canonical" href="https://TKONIY.github.io/dreamzero/01_inference_walkthrough/">
       
       
-        <link rel="prev" href="../wan2_1_attention/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../wan_video_camera_controller/">
+        <link rel="next" href="../00_background_knowledge/">
       
       
         
       
       
-      <link rel="icon" href="../../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
     
     
       
-        <title>wan2_1_submodule.py -- Wan2.1 DiT 子模块集合 - DreamZero 代码教程</title>
+        <title>推理流程详解 - DreamZero 代码教程</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wan2_1_submodulepy-wan21-dit" class="md-skip">
+        <a href="#dreamzero" class="md-skip">
           跳转至
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../../../.." title="DreamZero 代码教程" class="md-header__button md-logo" aria-label="DreamZero 代码教程" data-md-component="logo">
+    <a href=".." title="DreamZero 代码教程" class="md-header__button md-logo" aria-label="DreamZero 代码教程" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              wan2_1_submodule.py -- Wan2.1 DiT 子模块集合
+              推理流程详解
             
           </span>
         </div>
@@ -218,7 +218,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../../.." title="DreamZero 代码教程" class="md-nav__button md-logo" aria-label="DreamZero 代码教程" data-md-component="logo">
+    <a href=".." title="DreamZero 代码教程" class="md-nav__button md-logo" aria-label="DreamZero 代码教程" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -236,7 +236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -260,10 +260,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../../../01_inference_walkthrough/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    推理流程详解
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -279,6 +306,270 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总览：推理执行调用链
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 1 层：入口函数 main()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第 1 层：入口函数 main()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键步骤解读
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-grootsimpolicy__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 2 层：模型加载 — GrootSimPolicy.__init__()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第 2 层：模型加载 — GrootSimPolicy.__init__()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 加载模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 构建数据变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 配置推理参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ardroidroboarenapolicyinfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 3 层：推理请求处理 — ARDroidRoboarenaPolicy.infer()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第 3 层：推理请求处理 — ARDroidRoboarenaPolicy.infer()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        帧累积机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-lazy_joint_forward_causal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 4 层：数据变换与模型推理 — lazy_joint_forward_causal()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-vla-vlalazy_joint_video_action_causal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 5 层：VLA 模型前向传播 — VLA.lazy_joint_video_action_causal()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-wanflowmatchingactiontflazy_joint_video_action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 6 层：核心推理引擎 — WanFlowMatchingActionTF.lazy_joint_video_action()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第 6 层：核心推理引擎 — WanFlowMatchingActionTF.lazy_joint_video_action()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 文本编码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 图像编码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-vae" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 视频 VAE 编码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-flow-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Flow Matching 去噪循环
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 提取输出
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 7 层：分布式推理协调
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推荐阅读顺序
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键概念速查
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -290,7 +581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../00_background_knowledge/" class="md-nav__link">
+      <a href="../00_background_knowledge/" class="md-nav__link">
         
   
   
@@ -317,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../00_reading_guide/" class="md-nav__link">
+      <a href="../00_reading_guide/" class="md-nav__link">
         
   
   
@@ -375,7 +666,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../root/" class="md-nav__link ">
+            <a href="../root/" class="md-nav__link ">
               
   
   
@@ -419,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../root/pyproject/" class="md-nav__link">
+      <a href="../root/pyproject/" class="md-nav__link">
         
   
   
@@ -447,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../root/socket_test_optimized_AR/" class="md-nav__link">
+      <a href="../root/socket_test_optimized_AR/" class="md-nav__link">
         
   
   
@@ -475,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../root/test_client_AR/" class="md-nav__link">
+      <a href="../root/test_client_AR/" class="md-nav__link">
         
   
   
@@ -541,7 +832,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../eval_utils/" class="md-nav__link ">
+            <a href="../eval_utils/" class="md-nav__link ">
               
   
   
@@ -585,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../eval_utils/policy_client/" class="md-nav__link">
+      <a href="../eval_utils/policy_client/" class="md-nav__link">
         
   
   
@@ -613,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../eval_utils/policy_server/" class="md-nav__link">
+      <a href="../eval_utils/policy_server/" class="md-nav__link">
         
   
   
@@ -641,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../eval_utils/run_sim_eval/" class="md-nav__link">
+      <a href="../eval_utils/run_sim_eval/" class="md-nav__link">
         
   
   
@@ -709,7 +1000,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../scripts/" class="md-nav__link ">
+            <a href="../scripts/" class="md-nav__link ">
               
   
   
@@ -753,7 +1044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../scripts/compare_loss/" class="md-nav__link">
+      <a href="../scripts/compare_loss/" class="md-nav__link">
         
   
   
@@ -781,7 +1072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../scripts/open_loop_yam/" class="md-nav__link">
+      <a href="../scripts/open_loop_yam/" class="md-nav__link">
         
   
   
@@ -837,7 +1128,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../scripts/data/" class="md-nav__link ">
+            <a href="../scripts/data/" class="md-nav__link ">
               
   
   
@@ -881,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../scripts/data/convert_agibot/" class="md-nav__link">
+      <a href="../scripts/data/convert_agibot/" class="md-nav__link">
         
   
   
@@ -909,7 +1200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../scripts/data/convert_droid/" class="md-nav__link">
+      <a href="../scripts/data/convert_droid/" class="md-nav__link">
         
   
   
@@ -937,7 +1228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../scripts/data/convert_lerobot_to_gear/" class="md-nav__link">
+      <a href="../scripts/data/convert_lerobot_to_gear/" class="md-nav__link">
         
   
   
@@ -1005,7 +1296,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../scripts/train/" class="md-nav__link ">
+            <a href="../scripts/train/" class="md-nav__link ">
               
   
   
@@ -1049,7 +1340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../scripts/train/agibot_training/" class="md-nav__link">
+      <a href="../scripts/train/agibot_training/" class="md-nav__link">
         
   
   
@@ -1077,7 +1368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../scripts/train/droid_training/" class="md-nav__link">
+      <a href="../scripts/train/droid_training/" class="md-nav__link">
         
   
   
@@ -1105,7 +1396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../scripts/train/droid_training_full_finetune/" class="md-nav__link">
+      <a href="../scripts/train/droid_training_full_finetune/" class="md-nav__link">
         
   
   
@@ -1133,7 +1424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../scripts/train/droid_training_lora/" class="md-nav__link">
+      <a href="../scripts/train/droid_training_lora/" class="md-nav__link">
         
   
   
@@ -1161,7 +1452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../scripts/train/yam_training/" class="md-nav__link">
+      <a href="../scripts/train/yam_training/" class="md-nav__link">
         
   
   
@@ -1201,8 +1492,6 @@
       
   
   
-    
-  
   
   
     
@@ -1223,15 +1512,17 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../" class="md-nav__link ">
+            <a href="../groot/" class="md-nav__link ">
               
   
   
@@ -1255,7 +1546,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1272,8 +1563,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1301,15 +1590,17 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../" class="md-nav__link ">
+            <a href="../groot/vla/" class="md-nav__link ">
               
   
   
@@ -1333,7 +1624,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1377,7 +1668,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../common/" class="md-nav__link ">
+            <a href="../groot/vla/common/" class="md-nav__link ">
               
   
   
@@ -1449,7 +1740,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../common/utils/" class="md-nav__link ">
+            <a href="../groot/vla/common/utils/" class="md-nav__link ">
               
   
   
@@ -1519,7 +1810,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../common/utils/data_structure/" class="md-nav__link ">
+            <a href="../groot/vla/common/utils/data_structure/" class="md-nav__link ">
               
   
   
@@ -1563,7 +1854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/data_structure/shape_utils/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/data_structure/shape_utils/" class="md-nav__link">
         
   
   
@@ -1591,7 +1882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/data_structure/tree_utils/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/data_structure/tree_utils/" class="md-nav__link">
         
   
   
@@ -1661,7 +1952,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../common/utils/io/" class="md-nav__link ">
+            <a href="../groot/vla/common/utils/io/" class="md-nav__link ">
               
   
   
@@ -1705,7 +1996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/io/config_utils/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/io/config_utils/" class="md-nav__link">
         
   
   
@@ -1733,7 +2024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/io/file_utils/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/io/file_utils/" class="md-nav__link">
         
   
   
@@ -1761,7 +2052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/io/hdf5_utils/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/io/hdf5_utils/" class="md-nav__link">
         
   
   
@@ -1789,7 +2080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/io/json_utils/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/io/json_utils/" class="md-nav__link">
         
   
   
@@ -1817,7 +2108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/io/print_utils/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/io/print_utils/" class="md-nav__link">
         
   
   
@@ -1845,7 +2136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/io/termcolor/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/io/termcolor/" class="md-nav__link">
         
   
   
@@ -1915,7 +2206,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../common/utils/misc/" class="md-nav__link ">
+            <a href="../groot/vla/common/utils/misc/" class="md-nav__link ">
               
   
   
@@ -1959,7 +2250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/misc/array_tensor_utils/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/misc/array_tensor_utils/" class="md-nav__link">
         
   
   
@@ -1987,7 +2278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/misc/functional_utils/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/misc/functional_utils/" class="md-nav__link">
         
   
   
@@ -2015,7 +2306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/misc/image_utils/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/misc/image_utils/" class="md-nav__link">
         
   
   
@@ -2043,7 +2334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/misc/misc_utils/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/misc/misc_utils/" class="md-nav__link">
         
   
   
@@ -2071,7 +2362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/misc/torch_utils/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/misc/torch_utils/" class="md-nav__link">
         
   
   
@@ -2099,7 +2390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../common/utils/misc/video_utils/" class="md-nav__link">
+      <a href="../groot/vla/common/utils/misc/video_utils/" class="md-nav__link">
         
   
   
@@ -2181,7 +2472,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../configs/" class="md-nav__link ">
+            <a href="../groot/vla/configs/" class="md-nav__link ">
               
   
   
@@ -2225,7 +2516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../configs/conf/" class="md-nav__link">
+      <a href="../groot/vla/configs/conf/" class="md-nav__link">
         
   
   
@@ -2277,7 +2568,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../configs/data/" class="md-nav__link ">
+            <a href="../groot/vla/configs/data/" class="md-nav__link ">
               
   
   
@@ -2351,7 +2642,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../configs/data/dreamzero/" class="md-nav__link ">
+            <a href="../groot/vla/configs/data/dreamzero/" class="md-nav__link ">
               
   
   
@@ -2395,7 +2686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../configs/data/dreamzero/agibot_relative/" class="md-nav__link">
+      <a href="../groot/vla/configs/data/dreamzero/agibot_relative/" class="md-nav__link">
         
   
   
@@ -2423,7 +2714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../configs/data/dreamzero/base_48_wan_fine_aug_relative/" class="md-nav__link">
+      <a href="../groot/vla/configs/data/dreamzero/base_48_wan_fine_aug_relative/" class="md-nav__link">
         
   
   
@@ -2451,7 +2742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../configs/data/dreamzero/droid_relative/" class="md-nav__link">
+      <a href="../groot/vla/configs/data/dreamzero/droid_relative/" class="md-nav__link">
         
   
   
@@ -2479,7 +2770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../configs/data/dreamzero/yam_relative/" class="md-nav__link">
+      <a href="../groot/vla/configs/data/dreamzero/yam_relative/" class="md-nav__link">
         
   
   
@@ -2551,7 +2842,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../configs/deepspeed/" class="md-nav__link ">
+            <a href="../groot/vla/configs/deepspeed/" class="md-nav__link ">
               
   
   
@@ -2595,7 +2886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../configs/deepspeed/zero2/" class="md-nav__link">
+      <a href="../groot/vla/configs/deepspeed/zero2/" class="md-nav__link">
         
   
   
@@ -2623,7 +2914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../configs/deepspeed/zero2_offload/" class="md-nav__link">
+      <a href="../groot/vla/configs/deepspeed/zero2_offload/" class="md-nav__link">
         
   
   
@@ -2651,7 +2942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../configs/deepspeed/zero3/" class="md-nav__link">
+      <a href="../groot/vla/configs/deepspeed/zero3/" class="md-nav__link">
         
   
   
@@ -2711,7 +3002,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../configs/model/" class="md-nav__link ">
+            <a href="../groot/vla/configs/model/" class="md-nav__link ">
               
   
   
@@ -2785,7 +3076,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../configs/model/dreamzero/" class="md-nav__link ">
+            <a href="../groot/vla/configs/model/dreamzero/" class="md-nav__link ">
               
   
   
@@ -2829,7 +3120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../configs/model/dreamzero/vla/" class="md-nav__link">
+      <a href="../groot/vla/configs/model/dreamzero/vla/" class="md-nav__link">
         
   
   
@@ -2881,7 +3172,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../configs/model/dreamzero/action_head/" class="md-nav__link ">
+            <a href="../groot/vla/configs/model/dreamzero/action_head/" class="md-nav__link ">
               
   
   
@@ -2925,7 +3216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../configs/model/dreamzero/action_head/wan_flow_matching_action_tf/" class="md-nav__link">
+      <a href="../groot/vla/configs/model/dreamzero/action_head/wan_flow_matching_action_tf/" class="md-nav__link">
         
   
   
@@ -2985,7 +3276,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../configs/model/dreamzero/backbone/" class="md-nav__link ">
+            <a href="../groot/vla/configs/model/dreamzero/backbone/" class="md-nav__link ">
               
   
   
@@ -3029,7 +3320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../configs/model/dreamzero/backbone/identity/" class="md-nav__link">
+      <a href="../groot/vla/configs/model/dreamzero/backbone/identity/" class="md-nav__link">
         
   
   
@@ -3091,7 +3382,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../configs/model/dreamzero/transform/" class="md-nav__link ">
+            <a href="../groot/vla/configs/model/dreamzero/transform/" class="md-nav__link ">
               
   
   
@@ -3135,7 +3426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../configs/model/dreamzero/transform/base/" class="md-nav__link">
+      <a href="../groot/vla/configs/model/dreamzero/transform/base/" class="md-nav__link">
         
   
   
@@ -3163,7 +3454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../configs/model/dreamzero/transform/dreamzero_cotrain/" class="md-nav__link">
+      <a href="../groot/vla/configs/model/dreamzero/transform/dreamzero_cotrain/" class="md-nav__link">
         
   
   
@@ -3253,7 +3544,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../data/" class="md-nav__link ">
+            <a href="../groot/vla/data/" class="md-nav__link ">
               
   
   
@@ -3321,7 +3612,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../data/conversion/" class="md-nav__link ">
+            <a href="../groot/vla/data/conversion/" class="md-nav__link ">
               
   
   
@@ -3391,7 +3682,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../data/conversion/gr1/" class="md-nav__link ">
+            <a href="../groot/vla/data/conversion/gr1/" class="md-nav__link ">
               
   
   
@@ -3435,7 +3726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/conversion/gr1/constants/" class="md-nav__link">
+      <a href="../groot/vla/data/conversion/gr1/constants/" class="md-nav__link">
         
   
   
@@ -3463,7 +3754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/conversion/gr1/get_initial_actions/" class="md-nav__link">
+      <a href="../groot/vla/data/conversion/gr1/get_initial_actions/" class="md-nav__link">
         
   
   
@@ -3539,7 +3830,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../data/dataset/" class="md-nav__link ">
+            <a href="../groot/vla/data/dataset/" class="md-nav__link ">
               
   
   
@@ -3583,7 +3874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/dataset/lerobot/" class="md-nav__link">
+      <a href="../groot/vla/data/dataset/lerobot/" class="md-nav__link">
         
   
   
@@ -3611,7 +3902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/dataset/lerobot_sharded/" class="md-nav__link">
+      <a href="../groot/vla/data/dataset/lerobot_sharded/" class="md-nav__link">
         
   
   
@@ -3639,7 +3930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/dataset/macro/" class="md-nav__link">
+      <a href="../groot/vla/data/dataset/macro/" class="md-nav__link">
         
   
   
@@ -3667,7 +3958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/dataset/metadata/" class="md-nav__link">
+      <a href="../groot/vla/data/dataset/metadata/" class="md-nav__link">
         
   
   
@@ -3695,7 +3986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/dataset/registry/" class="md-nav__link">
+      <a href="../groot/vla/data/dataset/registry/" class="md-nav__link">
         
   
   
@@ -3757,7 +4048,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../data/schema/" class="md-nav__link ">
+            <a href="../groot/vla/data/schema/" class="md-nav__link ">
               
   
   
@@ -3801,7 +4092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/schema/embodiment_tags/" class="md-nav__link">
+      <a href="../groot/vla/data/schema/embodiment_tags/" class="md-nav__link">
         
   
   
@@ -3829,7 +4120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/schema/lerobot/" class="md-nav__link">
+      <a href="../groot/vla/data/schema/lerobot/" class="md-nav__link">
         
   
   
@@ -3897,7 +4188,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../data/transform/" class="md-nav__link ">
+            <a href="../groot/vla/data/transform/" class="md-nav__link ">
               
   
   
@@ -3941,7 +4232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/transform/base/" class="md-nav__link">
+      <a href="../groot/vla/data/transform/base/" class="md-nav__link">
         
   
   
@@ -3969,7 +4260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/transform/concat/" class="md-nav__link">
+      <a href="../groot/vla/data/transform/concat/" class="md-nav__link">
         
   
   
@@ -3997,7 +4288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/transform/language/" class="md-nav__link">
+      <a href="../groot/vla/data/transform/language/" class="md-nav__link">
         
   
   
@@ -4025,7 +4316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/transform/state_action/" class="md-nav__link">
+      <a href="../groot/vla/data/transform/state_action/" class="md-nav__link">
         
   
   
@@ -4053,7 +4344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../data/transform/video/" class="md-nav__link">
+      <a href="../groot/vla/data/transform/video/" class="md-nav__link">
         
   
   
@@ -4125,7 +4416,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../experiment/" class="md-nav__link ">
+            <a href="../groot/vla/experiment/" class="md-nav__link ">
               
   
   
@@ -4169,7 +4460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../experiment/base/" class="md-nav__link">
+      <a href="../groot/vla/experiment/base/" class="md-nav__link">
         
   
   
@@ -4197,7 +4488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../experiment/experiment/" class="md-nav__link">
+      <a href="../groot/vla/experiment/experiment/" class="md-nav__link">
         
   
   
@@ -4225,7 +4516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../experiment/utils/" class="md-nav__link">
+      <a href="../groot/vla/experiment/utils/" class="md-nav__link">
         
   
   
@@ -4258,8 +4549,6 @@
                 
   
   
-    
-  
   
   
     
@@ -4279,15 +4568,17 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2_6" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2_6" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../" class="md-nav__link ">
+            <a href="../groot/vla/model/" class="md-nav__link ">
               
   
   
@@ -4311,7 +4602,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_2_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_2_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8_2_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4328,8 +4619,6 @@
                 
   
   
-    
-  
   
   
     
@@ -4355,15 +4644,17 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2_6_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2_6_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../groot/vla/model/dreamzero/" class="md-nav__link ">
               
   
   
@@ -4387,7 +4678,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_8_2_6_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_8_2_6_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8_2_6_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4407,7 +4698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../base_vla/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/base_vla/" class="md-nav__link">
         
   
   
@@ -4459,7 +4750,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../action_head/" class="md-nav__link ">
+            <a href="../groot/vla/model/dreamzero/action_head/" class="md-nav__link ">
               
   
   
@@ -4503,7 +4794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../action_head/wan_flow_matching_action_tf/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/action_head/wan_flow_matching_action_tf/" class="md-nav__link">
         
   
   
@@ -4565,7 +4856,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../backbone/" class="md-nav__link ">
+            <a href="../groot/vla/model/dreamzero/backbone/" class="md-nav__link ">
               
   
   
@@ -4609,7 +4900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../backbone/base_backbone/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/backbone/base_backbone/" class="md-nav__link">
         
   
   
@@ -4637,7 +4928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../backbone/identity/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/backbone/identity/" class="md-nav__link">
         
   
   
@@ -4670,8 +4961,6 @@
                 
   
   
-    
-  
   
   
     
@@ -4715,15 +5004,17 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2_6_2_5" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2_6_2_5" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../groot/vla/model/dreamzero/modules/" class="md-nav__link ">
               
   
   
@@ -4747,7 +5038,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_8_2_6_2_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_8_2_6_2_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8_2_6_2_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4767,7 +5058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../attention/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/modules/attention/" class="md-nav__link">
         
   
   
@@ -4795,7 +5086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cudnn_attention/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/modules/cudnn_attention/" class="md-nav__link">
         
   
   
@@ -4823,7 +5114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../flow_match_scheduler/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/modules/flow_match_scheduler/" class="md-nav__link">
         
   
   
@@ -4851,7 +5142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../flow_unipc_multistep_scheduler/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/modules/flow_unipc_multistep_scheduler/" class="md-nav__link">
         
   
   
@@ -4879,7 +5170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../utils/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/modules/utils/" class="md-nav__link">
         
   
   
@@ -4907,7 +5198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vram_management/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/modules/vram_management/" class="md-nav__link">
         
   
   
@@ -4935,7 +5226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wan2_1_attention/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/modules/wan2_1_attention/" class="md-nav__link">
         
   
   
@@ -4960,37 +5251,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    wan2_1_submodule.py -- Wan2.1 DiT 子模块集合
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../groot/vla/model/dreamzero/modules/wan2_1_submodule/" class="md-nav__link">
         
   
   
@@ -5006,142 +5270,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        文件概述
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        关键代码解析
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="关键代码解析">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rope" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RoPE 相关函数
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wanattentionblock-" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        WanAttentionBlock -- 注意力块
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#i2v" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        I2V 交叉注意力
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wanmodel-" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        WanModel -- 完整模型
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#registertokens-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RegisterTokens -- 分类 token
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        核心类/函数表格
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        与其他模块的关系
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        总结
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5154,7 +5282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wan_video_camera_controller/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/modules/wan_video_camera_controller/" class="md-nav__link">
         
   
   
@@ -5182,7 +5310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wan_video_dit/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/modules/wan_video_dit/" class="md-nav__link">
         
   
   
@@ -5210,7 +5338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wan_video_dit_action_casual_chunk/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/modules/wan_video_dit_action_casual_chunk/" class="md-nav__link">
         
   
   
@@ -5238,7 +5366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wan_video_image_encoder/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/modules/wan_video_image_encoder/" class="md-nav__link">
         
   
   
@@ -5266,7 +5394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wan_video_text_encoder/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/modules/wan_video_text_encoder/" class="md-nav__link">
         
   
   
@@ -5294,7 +5422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wan_video_vae/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/modules/wan_video_vae/" class="md-nav__link">
         
   
   
@@ -5356,7 +5484,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../transform/" class="md-nav__link ">
+            <a href="../groot/vla/model/dreamzero/transform/" class="md-nav__link ">
               
   
   
@@ -5400,7 +5528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transform/common/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/transform/common/" class="md-nav__link">
         
   
   
@@ -5428,7 +5556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../transform/dreamzero_cotrain/" class="md-nav__link">
+      <a href="../groot/vla/model/dreamzero/transform/dreamzero_cotrain/" class="md-nav__link">
         
   
   
@@ -5500,7 +5628,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../n1_5/" class="md-nav__link ">
+            <a href="../groot/vla/model/n1_5/" class="md-nav__link ">
               
   
   
@@ -5544,7 +5672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../n1_5/sim_policy/" class="md-nav__link">
+      <a href="../groot/vla/model/n1_5/sim_policy/" class="md-nav__link">
         
   
   
@@ -5596,7 +5724,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../n1_5/action_head/" class="md-nav__link ">
+            <a href="../groot/vla/model/n1_5/action_head/" class="md-nav__link ">
               
   
   
@@ -5640,7 +5768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../n1_5/action_head/base_action_head/" class="md-nav__link">
+      <a href="../groot/vla/model/n1_5/action_head/base_action_head/" class="md-nav__link">
         
   
   
@@ -5700,7 +5828,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../n1_5/modules/" class="md-nav__link ">
+            <a href="../groot/vla/model/n1_5/modules/" class="md-nav__link ">
               
   
   
@@ -5744,7 +5872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../n1_5/modules/action_encoder/" class="md-nav__link">
+      <a href="../groot/vla/model/n1_5/modules/action_encoder/" class="md-nav__link">
         
   
   
@@ -5822,7 +5950,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../utils/" class="md-nav__link ">
+            <a href="../groot/vla/utils/" class="md-nav__link ">
               
   
   
@@ -5866,7 +5994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../utils/action_args_override_utils/" class="md-nav__link">
+      <a href="../groot/vla/utils/action_args_override_utils/" class="md-nav__link">
         
   
   
@@ -5894,7 +6022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../utils/timer/" class="md-nav__link">
+      <a href="../groot/vla/utils/timer/" class="md-nav__link">
         
   
   
@@ -5945,7 +6073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../TODO/" class="md-nav__link">
+      <a href="../TODO/" class="md-nav__link">
         
   
   
@@ -5995,7 +6123,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        文件概述
+        总览：推理执行调用链
       
     </span>
   </a>
@@ -6003,66 +6131,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#1-main" class="md-nav__link">
     <span class="md-ellipsis">
       
-        关键代码解析
+        第 1 层：入口函数 main()
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="关键代码解析">
+    <nav class="md-nav" aria-label="第 1 层：入口函数 main()">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rope" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        RoPE 相关函数
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wanattentionblock-" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        WanAttentionBlock -- 注意力块
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#i2v" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        I2V 交叉注意力
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#wanmodel-" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        WanModel -- 完整模型
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#registertokens-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RegisterTokens -- 分类 token
+        关键步骤解读
       
     </span>
   </a>
@@ -6075,10 +6159,182 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#2-grootsimpolicy__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 2 层：模型加载 — GrootSimPolicy.__init__()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第 2 层：模型加载 — GrootSimPolicy.__init__()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 加载模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 构建数据变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 配置推理参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ardroidroboarenapolicyinfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 3 层：推理请求处理 — ARDroidRoboarenaPolicy.infer()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第 3 层：推理请求处理 — ARDroidRoboarenaPolicy.infer()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心类/函数表格
+        帧累积机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-lazy_joint_forward_causal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 4 层：数据变换与模型推理 — lazy_joint_forward_causal()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-vla-vlalazy_joint_video_action_causal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 5 层：VLA 模型前向传播 — VLA.lazy_joint_video_action_causal()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-wanflowmatchingactiontflazy_joint_video_action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 6 层：核心推理引擎 — WanFlowMatchingActionTF.lazy_joint_video_action()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第 6 层：核心推理引擎 — WanFlowMatchingActionTF.lazy_joint_video_action()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 文本编码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 图像编码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-vae" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 视频 VAE 编码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-flow-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Flow Matching 去噪循环
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 提取输出
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第 7 层：分布式推理协调
       
     </span>
   </a>
@@ -6089,7 +6345,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        与其他模块的关系
+        推荐阅读顺序
       
     </span>
   </a>
@@ -6100,7 +6356,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        总结
+        关键概念速查
       
     </span>
   </a>
@@ -6124,158 +6380,452 @@
 
 
 
-<h1 id="wan2_1_submodulepy-wan21-dit"><code>wan2_1_submodule.py</code> -- Wan2.1 DiT 子模块集合<a class="headerlink" href="#wan2_1_submodulepy-wan21-dit" title="Permanent link">&para;</a></h1>
-<h2 id="_1">文件概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>本文件包含了 Wan2.1 DiT 模型的所有核心子模块，是 <code>wan_video_dit_action_casual_chunk.py</code> 使用的新版 DiT 实现的基础。与 <code>wan_video_dit.py</code> 中的早期实现不同，本文件使用了更高效的注意力实现和更规范的代码结构。</p>
-<h2 id="_2">关键代码解析<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="rope">RoPE 相关函数<a class="headerlink" href="#rope" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">rope_params_polar</span><span class="p">(</span><span class="n">max_seq_len</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">freqs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">max_seq_len</span><span class="p">),</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="mf">1.0</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">dim</span><span class="p">))</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="p">)</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">freqs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">polar</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">freqs</span><span class="p">),</span> <span class="n">freqs</span><span class="p">)</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">return</span> <span class="n">freqs</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">rope_action_apply_polar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">freqs_action</span><span class="p">,</span> <span class="n">freqs_state</span><span class="p">,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                             <span class="n">action_register_length</span><span class="p">,</span> <span class="n">num_action_per_block</span><span class="p">,</span> <span class="n">num_state_per_block</span><span class="p">):</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">if</span> <span class="n">action_register_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="n">chunk_size</span> <span class="o">=</span> <span class="n">action_register_length</span> <span class="o">//</span> <span class="p">(</span><span class="n">num_action_per_block</span> <span class="o">+</span> <span class="n">num_state_per_block</span><span class="p">)</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="n">freqs_1d_action</span> <span class="o">=</span> <span class="n">freqs_action</span><span class="p">[:</span><span class="n">chunk_size</span> <span class="o">*</span> <span class="n">num_action_per_block</span><span class="p">]</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="n">freqs_1d_state</span> <span class="o">=</span> <span class="n">freqs_state</span><span class="p">[:</span><span class="n">chunk_size</span> <span class="o">*</span> <span class="n">num_state_per_block</span><span class="p">]</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="n">freqs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">freqs</span><span class="p">,</span> <span class="n">freqs_1d_action</span><span class="p">,</span> <span class="n">freqs_1d_state</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">view_as_real</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">freqs</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="k">return</span> <span class="n">x</span>
+<h1 id="dreamzero">DreamZero 推理流程：自顶向下执行详解<a class="headerlink" href="#dreamzero" title="Permanent link">&para;</a></h1>
+<p>本文档从推理入口出发，按照代码实际执行顺序，逐层剖析 DreamZero 从接收一帧图像到输出机器人动作的完整链路。适合想要快速理解"代码到底怎么跑起来的"读者。</p>
+<hr />
+<h2 id="_1">总览：推理执行调用链<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>torchrun socket_test_optimized_AR.py
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  ▼
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>main()                                          # 入口函数
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  ├── init_mesh()                               # 初始化 NCCL 分布式
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  ├── GrootSimPolicy(...)                       # 加载模型 + 变换
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  │     ├── VLA.from_pretrained() / load_lora() # 加载权重
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  │     ├── model.post_initialize()             # RoPE 频率 → GPU
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  │     ├── model.parallelize(device_mesh)      # 张量并行
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  │     └── eval_transform = instantiate(...)   # 数据变换链
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  ├── ARDroidRoboarenaPolicy(groot_policy=...)  # 观测格式适配器
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  └── RoboarenaServer(...).serve_forever()      # WebSocket 服务
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        │
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        ▼
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>  [客户端连接] → _handler() 接收 msgpack 观测
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        │
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        ▼
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>  ARDroidRoboarenaPolicy.infer(obs)
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        ├── _convert_observation(obs)           # roboarena → DreamZero 格式
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        ├── broadcast obs → 所有 GPU rank
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        └── GrootSimPolicy.lazy_joint_forward_causal(batch)
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>              ├── apply(batch)                  # 数据变换(裁剪/resize/归一化)
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>              ├── VLA.lazy_joint_video_action_causal(inputs)
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>              │     ├── IdentityBackbone(inputs) → 透传
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>              │     └── WanFlowMatchingActionTF.lazy_joint_video_action(...)
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>              │           ├── encode_prompt()     # UMT5 文本编码
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>              │           ├── encode_image()      # CLIP ViT-H 图像编码
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>              │           ├── vae.encode()        # 视频 → 潜空间
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>              │           ├── DiT 去噪循环         # 视频+动作联合去噪
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>              │           │     └── WanModel.forward() × N steps
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>              │           ├── 提取 action_pred     # 动作预测结果
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>              │           └── 返回 video_pred      # 视频潜空间预测
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>              └── unapply(batch)                # 反归一化 → 绝对动作
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>        │
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>        ▼
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>  _convert_action(action_dict) → numpy (N, 8)
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>  → websocket.send(action) → 客户端
 </code></pre></div>
-<p><code>rope_action_apply</code> 将 3D 视频 RoPE 和 1D 动作/状态 RoPE 拼接，使不同类型的 token 使用不同的位置编码策略。</p>
-<h3 id="wanattentionblock-">WanAttentionBlock -- 注意力块<a class="headerlink" href="#wanattentionblock-" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">WanAttentionBlock</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cross_attn_type</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">ffn_dim</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">self_attn</span> <span class="o">=</span> <span class="n">WanSelfAttention</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cross_attn</span> <span class="o">=</span> <span class="n">WAN_CROSSATTENTION_CLASSES</span><span class="p">[</span><span class="n">cross_attn_type</span><span class="p">](</span><span class="n">dim</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ffn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">ffn_dim</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">(),</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">ffn_dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">))</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">modulation</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span> <span class="o">/</span> <span class="n">dim</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">seq_lens</span><span class="p">,</span> <span class="n">grid_sizes</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">context_lens</span><span class="p">):</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modulation</span> <span class="o">+</span> <span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">self_attn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">norm1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">seq_lens</span><span class="p">,</span> <span class="n">grid_sizes</span><span class="p">,</span> <span class="n">freqs</span><span class="p">)</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">e</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cross_attn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">norm3</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">context</span><span class="p">,</span> <span class="n">context_lens</span><span class="p">)</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ffn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">norm2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">e</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span> <span class="o">+</span> <span class="n">e</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">e</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="k">return</span> <span class="n">x</span>
+<hr />
+<h2 id="1-main">第 1 层：入口函数 <code>main()</code><a class="headerlink" href="#1-main" title="Permanent link">&para;</a></h2>
+<p><strong>文件</strong>: <a href="../root/socket_test_optimized_AR/"><code>socket_test_optimized_AR.py</code></a> — 第 740 行</p>
+<p>程序通过 <code>torchrun --nproc_per_node=8 socket_test_optimized_AR.py</code> 启动，每个 GPU 一个进程。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;ENABLE_DIT_CACHE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">enable_dit_cache</span> <span class="k">else</span> <span class="s2">&quot;false&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;ATTENTION_BACKEND&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TE&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">_dynamo</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">recompile_limit</span> <span class="o">=</span> <span class="mi">800</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">device_mesh</span> <span class="o">=</span> <span class="n">init_mesh</span><span class="p">()</span>       <span class="c1"># ① 初始化 NCCL 分布式</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">rank</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">get_rank</span><span class="p">()</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">signal_group</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">new_group</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s2">&quot;gloo&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>  <span class="c1"># ② gloo 信号组</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">policy</span> <span class="o">=</span> <span class="n">GrootSimPolicy</span><span class="p">(</span>        <span class="c1"># ③ 加载模型</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="n">embodiment_tag</span><span class="o">=</span><span class="n">EmbodimentTag</span><span class="p">(</span><span class="s2">&quot;oxe_droid&quot;</span><span class="p">),</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="n">model_path</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">model_path</span><span class="p">,</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cuda&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="n">device_mesh</span><span class="o">=</span><span class="n">device_mesh</span><span class="p">,</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="p">)</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="n">wrapper_policy</span> <span class="o">=</span> <span class="n">ARDroidRoboarenaPolicy</span><span class="p">(</span><span class="n">groot_policy</span><span class="o">=</span><span class="n">policy</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>  <span class="c1"># ④ 格式适配器</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="k">if</span> <span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>        <span class="n">RoboarenaServer</span><span class="p">(</span><span class="n">policy</span><span class="o">=</span><span class="n">wrapper_policy</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>    <span class="c1"># ⑤ Rank 0 启动 WebSocket</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>        <span class="n">WebsocketPolicyServer</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">server</span><span class="o">.</span><span class="n">_worker_loop</span><span class="p">())</span>          <span class="c1"># ⑥ 其他 rank 进入 worker 循环</span>
 </code></pre></div>
-<h3 id="i2v">I2V 交叉注意力<a class="headerlink" href="#i2v" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">WanI2VCrossAttention</span><span class="p">(</span><span class="n">WanSelfAttention</span><span class="p">):</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">crossattn_cache</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        <span class="n">context_img</span> <span class="o">=</span> <span class="n">context</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">257</span><span class="p">]</span>   <span class="c1"># CLIP 图像特征</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="n">context</span> <span class="o">=</span> <span class="n">context</span><span class="p">[:,</span> <span class="mi">257</span><span class="p">:]</span>        <span class="c1"># 文本特征</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm_q</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">q</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="c1"># 文本交叉注意力</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm_k</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">(</span><span class="n">context</span><span class="p">));</span> <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">flash_attention</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="c1"># 图像交叉注意力（额外分支）</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="n">k_img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm_k_img</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k_img</span><span class="p">(</span><span class="n">context_img</span><span class="p">))</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="n">v_img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_img</span><span class="p">(</span><span class="n">context_img</span><span class="p">)</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>        <span class="n">img_x</span> <span class="o">=</span> <span class="n">flash_attention</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">k_img</span><span class="p">,</span> <span class="n">v_img</span><span class="p">)</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">img_x</span><span class="p">)</span>  <span class="c1"># 融合文本和图像注意力</span>
-</code></pre></div>
-<p>I2V 模式下，交叉注意力分为两支：文本注意力和图像注意力，各自独立计算后相加。</p>
-<h3 id="wanmodel-">WanModel -- 完整模型<a class="headerlink" href="#wanmodel-" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">WanModel</span><span class="p">(</span><span class="n">ModelMixin</span><span class="p">,</span> <span class="n">ConfigMixin</span><span class="p">):</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">seq_len</span><span class="p">,</span> <span class="n">clip_fea</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="c1"># 1. Patch embedding + 位置编码</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">patch_embedding</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="o">...</span><span class="p">])</span>  <span class="c1"># 填充到统一长度</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="c1"># 2. 时间步嵌入</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="n">e</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_embedding</span><span class="p">(</span><span class="n">sinusoidal_embedding_1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">freq_dim</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="n">e0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_projection</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="n">unflatten</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">))</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="c1"># 3. 条件编码</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="n">context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_embedding</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="o">...</span><span class="p">]))</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        <span class="k">if</span> <span class="n">clip_fea</span><span class="p">:</span> <span class="n">context</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">img_emb</span><span class="p">(</span><span class="n">clip_fea</span><span class="p">),</span> <span class="n">context</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        <span class="c1"># 4. Transformer 块</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>            <span class="n">x</span> <span class="o">=</span> <span class="n">block</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="n">e0</span><span class="p">,</span> <span class="n">seq_lens</span><span class="o">=</span><span class="n">seq_lens</span><span class="p">,</span> <span class="n">grid_sizes</span><span class="o">=</span><span class="n">grid_sizes</span><span class="p">,</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>                     <span class="n">freqs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">freqs</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">context_lens</span><span class="o">=</span><span class="n">context_lens</span><span class="p">)</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="c1"># 5. 输出头 + unpatchify</span>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unpatchify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">grid_sizes</span><span class="p">)</span>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="registertokens-token">RegisterTokens -- 分类 token<a class="headerlink" href="#registertokens-token" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">RegisterTokens</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_registers</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">register_tokens</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">num_registers</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.02</span><span class="p">)</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rms_norm</span> <span class="o">=</span> <span class="n">WanRMSNorm</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
-</code></pre></div>
-<p>用于 GAN 判别器风格的分类分支。</p>
-<h2 id="_3">核心类/函数表格<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_2">关键步骤解读<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>类/函数名</th>
-<th>功能描述</th>
+<th>步骤</th>
+<th>作用</th>
+<th>涉及文件</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>rope_params()</code> / <code>rope_apply()</code></td>
-<td>RoPE 参数计算和应用</td>
+<td>① <code>init_mesh()</code></td>
+<td>初始化 NCCL 进程组和 DeviceMesh，为张量并行做准备</td>
+<td><code>socket_test_optimized_AR.py:714</code></td>
 </tr>
 <tr>
-<td><code>rope_action_apply()</code></td>
-<td>动作/状态 token 的 RoPE</td>
+<td>② 创建 gloo 信号组</td>
+<td>NCCL 不支持 CPU tensor 广播，用 gloo 后端做控制信号（continue/shutdown/idle）</td>
+<td><code>socket_test_optimized_AR.py:763</code></td>
 </tr>
 <tr>
-<td><code>WanRMSNorm</code></td>
-<td>RMS 归一化</td>
+<td>③ <code>GrootSimPolicy</code></td>
+<td>加载模型权重、构建数据变换、设置推理参数（详见第 2 层）</td>
+<td><a href="../groot/vla/model/n1_5/sim_policy/"><code>sim_policy.py</code></a></td>
 </tr>
 <tr>
-<td><code>WanSelfAttention</code></td>
-<td>自注意力</td>
+<td>④ <code>ARDroidRoboarenaPolicy</code></td>
+<td>观测格式转换适配器，将 roboarena 格式转为 DreamZero 内部格式</td>
+<td><code>socket_test_optimized_AR.py:44</code></td>
 </tr>
 <tr>
-<td><code>WanT2VCrossAttention</code></td>
-<td>文本到视频交叉注意力</td>
+<td>⑤ <code>RoboarenaServer</code></td>
+<td>Rank 0 运行 WebSocket 服务，接收客户端请求</td>
+<td><a href="../eval_utils/policy_server/"><code>policy_server.py</code></a></td>
 </tr>
 <tr>
-<td><code>WanI2VCrossAttention</code></td>
-<td>图像到视频交叉注意力</td>
-</tr>
-<tr>
-<td><code>WanAttentionBlock</code></td>
-<td>完整注意力块</td>
-</tr>
-<tr>
-<td><code>WanModel</code></td>
-<td>完整 Wan2.1 DiT 模型</td>
-</tr>
-<tr>
-<td><code>Head</code></td>
-<td>输出投影头</td>
-</tr>
-<tr>
-<td><code>MLPProj</code></td>
-<td>CLIP 特征投影</td>
-</tr>
-<tr>
-<td><code>RegisterTokens</code></td>
-<td>分类 register token</td>
+<td>⑥ Worker 循环</td>
+<td>非 Rank 0 进程等待信号，参与分布式前向传播</td>
+<td><code>socket_test_optimized_AR.py:477</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="_4">与其他模块的关系<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="2-grootsimpolicy__init__">第 2 层：模型加载 — <code>GrootSimPolicy.__init__()</code><a class="headerlink" href="#2-grootsimpolicy__init__" title="Permanent link">&para;</a></h2>
+<p><strong>文件</strong>: <a href="../groot/vla/model/n1_5/sim_policy/"><code>groot/vla/model/n1_5/sim_policy.py</code></a> — 第 205 行</p>
+<p>这是推理侧最关键的初始化过程，完成三件事：<strong>加载模型</strong>、<strong>构建数据变换</strong>、<strong>配置推理参数</strong>。</p>
+<h3 id="21">2.1 加载模型<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 从 checkpoint 目录的 conf.yaml 读取训练配置</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">train_cfg</span> <span class="o">=</span> <span class="n">OmegaConf</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">model_dir</span> <span class="o">/</span> <span class="s2">&quot;experiment_cfg&quot;</span> <span class="o">/</span> <span class="s2">&quot;conf.yaml&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 根据训练时是否使用 LoRA 选择加载方式</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">if</span> <span class="n">train_cfg</span><span class="o">.</span><span class="n">save_lora_only</span><span class="p">:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">VLA</span><span class="o">.</span><span class="n">load_lora</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>       <span class="c1"># 加载 LoRA 权重</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">VLA</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span> <span class="c1"># 加载完整权重</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># LoRA 训练的模型：合并 LoRA 权重到主模型（推理不需要 adapter 开销）</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">action_head</span><span class="o">.</span><span class="n">train_architecture</span> <span class="o">==</span> <span class="s2">&quot;lora&quot;</span><span class="p">:</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="n">model</span><span class="o">.</span><span class="n">action_head</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">action_head</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">merge_and_unload</span><span class="p">()</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">model</span><span class="o">.</span><span class="n">post_initialize</span><span class="p">()</span>                     <span class="c1"># RoPE 频率 → GPU</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">model</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="n">device_mesh</span><span class="p">)</span>              <span class="c1"># 张量并行</span>
+</code></pre></div>
+<p>模型加载链进入 <a href="../groot/vla/model/dreamzero/base_vla/"><code>VLA.from_pretrained()</code></a>，它会：</p>
+<ol>
+<li>读取 <code>config.json</code> → 创建 <code>VLAConfig</code></li>
+<li>通过 <code>Hydra instantiate</code> 创建 backbone（IdentityBackbone）和 action_head（WanFlowMatchingActionTF）</li>
+<li>从 safetensors 文件加载权重</li>
+</ol>
+<h3 id="22">2.2 构建数据变换<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 加载归一化统计信息</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">metadata</span> <span class="o">=</span> <span class="n">DatasetMetadata</span><span class="o">.</span><span class="n">model_validate</span><span class="p">(</span><span class="n">metadatas</span><span class="p">[</span><span class="n">embodiment_tag</span><span class="p">])</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># 实例化变换链</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">eval_transform</span> <span class="o">=</span> <span class="n">instantiate</span><span class="p">(</span><span class="n">train_cfg</span><span class="o">.</span><span class="n">transforms</span><span class="p">[</span><span class="n">embodiment_tag</span><span class="p">])</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">eval_transform</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">eval_transform</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>  <span class="c1"># 评估模式（关闭数据增强）</span>
+</code></pre></div>
+<p>变换链 <a href="../groot/vla/data/transform/base/"><code>ComposedModalityTransform</code></a> 包含：
+- <a href="../groot/vla/data/transform/video/"><code>VideoCrop</code></a> — 中心裁剪
+- <a href="../groot/vla/data/transform/video/"><code>VideoResize</code></a> — 缩放到模型输入尺寸
+- <a href="../groot/vla/data/transform/state_action/"><code>StateActionTransform</code></a> — 状态/动作归一化
+- <a href="../groot/vla/data/transform/language/"><code>LanguageTransform</code></a> — 文本分词</p>
+<h3 id="23">2.3 配置推理参数<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="bp">self</span><span class="o">.</span><span class="n">_video_delta_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">modality_configs</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">eval_delta_indices</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># 例如 [-23, -16, -8, 0]，表示从历史帧中选取 4 帧作为输入</span>
+</code></pre></div>
+<hr />
+<h2 id="3-ardroidroboarenapolicyinfer">第 3 层：推理请求处理 — <code>ARDroidRoboarenaPolicy.infer()</code><a class="headerlink" href="#3-ardroidroboarenapolicyinfer" title="Permanent link">&para;</a></h2>
+<p><strong>文件</strong>: <code>socket_test_optimized_AR.py</code> — 第 245 行</p>
+<p>当客户端发送一帧观测时，执行流程如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">infer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="c1"># ① 会话管理：检测新会话 → 重置帧缓冲区</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="k">if</span> <span class="n">session_id</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_session_id</span><span class="p">:</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_reset_state</span><span class="p">()</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="c1"># ② 格式转换：roboarena 观测 → DreamZero 内部格式</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">converted_obs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_observation</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="c1"># 输入: {&quot;observation/exterior_image_0_left&quot;: (H,W,3), ...}</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="c1"># 输出: {&quot;video.exterior_image_1_left&quot;: (T,H,W,3), &quot;state.joint_position&quot;: (1,7), ...}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="c1"># ③ 信号同步：通知所有 GPU 准备推理</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">dist</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">signal_tensor</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_signal_group</span><span class="p">)</span>  <span class="c1"># gloo</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_broadcast_batch_to_workers</span><span class="p">(</span><span class="n">converted_obs</span><span class="p">)</span>                  <span class="c1"># pickle → NCCL</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="c1"># ④ 核心推理（所有 rank 同步执行）</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="n">dist</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    <span class="n">result_batch</span><span class="p">,</span> <span class="n">video_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_policy</span><span class="o">.</span><span class="n">lazy_joint_forward_causal</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>    <span class="n">dist</span><span class="o">.</span><span class="n">barrier</span><span class="p">()</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    <span class="c1"># ⑤ 动作格式转换：DreamZero → numpy (N, 8)</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>    <span class="n">action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_action</span><span class="p">(</span><span class="n">action_chunk_dict</span><span class="p">)</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>    <span class="k">return</span> <span class="n">action</span>
+</code></pre></div>
+<h3 id="_3">帧累积机制<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><code>_convert_observation()</code> 维护帧缓冲区，处理单帧→多帧的转换：</p>
 <ul>
-<li><strong>被 <code>wan_video_dit_action_casual_chunk.py</code> 导入</strong>: 使用 RoPE 函数和基础组件</li>
-<li><strong>使用 <code>attention.py</code></strong>: 底层注意力计算</li>
-<li><strong>与 <code>wan_video_dit.py</code> 功能类似</strong>: 但代码更新、更高效</li>
+<li><strong>首次调用</strong>：使用 1 帧（初始化）</li>
+<li><strong>后续调用</strong>：累积到 <code>FRAMES_PER_CHUNK=4</code> 帧</li>
+<li>每个摄像头独立缓冲，取最近 N 帧（不足时重复首帧填充）</li>
 </ul>
-<h2 id="_5">总结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p><code>wan2_1_submodule.py</code> 包含了 Wan2.1 DiT 的全套子模块，是 DreamZero 中较新版本的 DiT 实现基础。它支持变长序列、I2V 交叉注意力、动作 token RoPE 等关键特性。</p>
+<hr />
+<h2 id="4-lazy_joint_forward_causal">第 4 层：数据变换与模型推理 — <code>lazy_joint_forward_causal()</code><a class="headerlink" href="#4-lazy_joint_forward_causal" title="Permanent link">&para;</a></h2>
+<p><strong>文件</strong>: <a href="../groot/vla/model/n1_5/sim_policy/"><code>groot/vla/model/n1_5/sim_policy.py</code></a> — 第 641 行</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">lazy_joint_forward_causal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="c1"># ① 保存原始观测（用于相对动作→绝对动作转换）</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">original_obs</span> <span class="o">=</span> <span class="n">deep_copy</span><span class="p">(</span><span class="n">batch</span><span class="o">.</span><span class="n">obs</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="c1"># ② 数据变换（ComposedModalityTransform）</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="n">batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>  <span class="c1"># → eval_transform(obs)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="c1"># 视频: uint8 (T,H,W,3) → float32 归一化</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="c1"># 状态: 原始值 → q01/q99 归一化</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="c1"># 文本: str → token ids</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="c1"># ③ VLA 模型推理</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="n">model_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trained_model</span><span class="o">.</span><span class="n">lazy_joint_video_action_causal</span><span class="p">(</span><span class="n">normalized_input</span><span class="p">)</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="n">normalized_action</span> <span class="o">=</span> <span class="n">model_pred</span><span class="p">[</span><span class="s2">&quot;action_pred&quot;</span><span class="p">]</span>   <span class="c1"># (B, action_horizon, action_dim)</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="n">video_pred</span> <span class="o">=</span> <span class="n">model_pred</span><span class="p">[</span><span class="s2">&quot;video_pred&quot;</span><span class="p">]</span>           <span class="c1"># 潜空间视频预测</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    <span class="c1"># ④ 反变换：归一化动作 → 真实物理值</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="n">batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unapply</span><span class="p">(</span><span class="n">Batch</span><span class="p">(</span><span class="n">normalized_action</span><span class="o">=</span><span class="n">normalized_action</span><span class="p">),</span> <span class="n">obs</span><span class="o">=</span><span class="n">original_obs</span><span class="p">)</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    <span class="c1"># 包括: 反归一化 + 相对动作 → 绝对动作（加上当前关节位置）</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>    <span class="k">return</span> <span class="n">batch</span><span class="p">,</span> <span class="n">video_pred</span>
+</code></pre></div>
+<hr />
+<h2 id="5-vla-vlalazy_joint_video_action_causal">第 5 层：VLA 模型前向传播 — <code>VLA.lazy_joint_video_action_causal()</code><a class="headerlink" href="#5-vla-vlalazy_joint_video_action_causal" title="Permanent link">&para;</a></h2>
+<p><strong>文件</strong>: <a href="../groot/vla/model/dreamzero/base_vla/"><code>groot/vla/model/dreamzero/base_vla.py</code></a> — 第 180 行</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">lazy_joint_video_action_causal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">latent_video</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">backbone_inputs</span><span class="p">,</span> <span class="n">action_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepare_input</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">backbone_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backbone</span><span class="p">(</span><span class="n">backbone_inputs</span><span class="p">)</span>           <span class="c1"># IdentityBackbone → 透传</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">action_head_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">action_head</span><span class="o">.</span><span class="n">lazy_joint_video_action</span><span class="p">(</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        <span class="n">backbone_outputs</span><span class="p">,</span> <span class="n">action_inputs</span><span class="p">,</span> <span class="n">latent_video</span><span class="o">=</span><span class="n">latent_video</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="p">)</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="k">return</span> <span class="n">action_head_outputs</span>
+</code></pre></div>
+<p>VLA 模型由两部分组成：
+- <strong>Backbone</strong>: <a href="../groot/vla/model/dreamzero/backbone/identity/"><code>IdentityBackbone</code></a> — 直接透传输入（DreamZero 不使用额外 backbone）
+- <strong>Action Head</strong>: <a href="../groot/vla/model/dreamzero/action_head/wan_flow_matching_action_tf/"><code>WanFlowMatchingActionTF</code></a> — 核心推理逻辑</p>
+<hr />
+<h2 id="6-wanflowmatchingactiontflazy_joint_video_action">第 6 层：核心推理引擎 — <code>WanFlowMatchingActionTF.lazy_joint_video_action()</code><a class="headerlink" href="#6-wanflowmatchingactiontflazy_joint_video_action" title="Permanent link">&para;</a></h2>
+<p><strong>文件</strong>: <a href="../groot/vla/model/dreamzero/action_head/wan_flow_matching_action_tf/"><code>groot/vla/model/dreamzero/action_head/wan_flow_matching_action_tf.py</code></a> — 第 929 行</p>
+<p>这是整个系统最核心的方法，执行联合视频-动作生成的完整流程：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>输入: 视频帧 + 文本指令 + 机器人状态
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>          │
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    ┌─────┴──────────────────────────────────────┐
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    │                                            │
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    ▼                                            ▼
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>  │ 文本编码      │   │ 图像编码      │   │ VAE 编码      │
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>  │ UMT5-XXL     │   │ CLIP ViT-H   │   │ WanVideoVAE  │
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>  │ text → emb   │   │ img → feat   │   │ video → z    │
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>  └──────┬───────┘   └──────┬───────┘   └──────┬───────┘
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>         │                  │                   │
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>         ▼                  ▼                   ▼
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>  ┌────────────────────────────────────────────────────┐
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>  │          DiT 去噪循环 (N 步, 默认 10 步)             │
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>  │                                                    │
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>  │   噪声 z_T ──┐                                     │
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>  │              ▼                                     │
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>  │   ┌─────── WanModel.forward() ◄── 文本 emb ──┐    │
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>  │   │   因果分块注意力                  图像 feat  │    │
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>  │   │   ┌──────────┐  ┌───────────┐             │    │
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>  │   │   │ 视频通道  │  │ 动作通道   │             │    │
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>  │   │   │ z_{t-1}  │  │ a_{t-1}   │             │    │
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>  │   │   └──────────┘  └───────────┘             │    │
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>  │   │         ↓              ↓                  │    │
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>  │   └──── 预测速度场 v ──► 更新 z_t, a_t ────────┘    │
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>  │                                                    │
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>  │   重复 N 步 → z_0 (去噪后潜空间), a_0 (去噪后动作)   │
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>  └────────────────────────────────────────────────────┘
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>         │                            │
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>         ▼                            ▼
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>  video_pred (潜空间)          action_pred (B, H, D)
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>  (可选 VAE 解码为视频帧)       → 机器人动作序列
+</code></pre></div>
+<h3 id="61">6.1 文本编码<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">text_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_text_inputs</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>           <span class="c1"># 分词</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">prompt_embs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">encode_prompt</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span> <span class="o">...</span><span class="p">]</span>       <span class="c1"># UMT5-XXL 编码</span>
+</code></pre></div>
+<p><strong>涉及文件</strong>: <a href="../groot/vla/model/dreamzero/modules/wan_video_text_encoder/"><code>wan_video_text_encoder.py</code></a></p>
+<h3 id="62">6.2 图像编码<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">clip_feas</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>    <span class="c1"># CLIP ViT-H/14</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="bp">self</span><span class="o">.</span><span class="n">clip_feas</span> <span class="o">=</span> <span class="n">clip_feas</span>     <span class="c1"># 缓存 (首帧编码一次，后续复用)</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="bp">self</span><span class="o">.</span><span class="n">ys</span> <span class="o">=</span> <span class="n">ys</span>
+</code></pre></div>
+<p><strong>涉及文件</strong>: <a href="../groot/vla/model/dreamzero/modules/wan_video_image_encoder/"><code>wan_video_image_encoder.py</code></a></p>
+<p>关键优化：<code>current_start_frame == 0</code> 时才编码图像，后续自回归步骤复用缓存。</p>
+<h3 id="63-vae">6.3 视频 VAE 编码<a class="headerlink" href="#63-vae" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vae</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">videos</span><span class="p">,</span> <span class="n">tiled</span><span class="o">=...</span><span class="p">,</span> <span class="n">tile_size</span><span class="o">=...</span><span class="p">,</span> <span class="n">tile_stride</span><span class="o">=...</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>涉及文件</strong>: <a href="../groot/vla/model/dreamzero/modules/wan_video_vae/"><code>wan_video_vae.py</code></a></p>
+<p>将 RGB 视频帧编码为潜空间表示。支持分块编码（tiled）以减少显存占用。</p>
+<h3 id="64-flow-matching">6.4 Flow Matching 去噪循环<a class="headerlink" href="#64-flow-matching" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># 初始化噪声</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">noise_obs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_noise</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="c1"># 视频潜空间噪声</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">noise_action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_noise</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>  <span class="c1"># 动作噪声</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1"># N 步去噪 (默认 10 步)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scheduler</span><span class="o">.</span><span class="n">timesteps</span><span class="p">):</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    <span class="c1"># DiT 前向传播：预测速度场</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    <span class="n">model_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>        <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">noise_obs</span><span class="p">,</span> <span class="n">noise_action</span><span class="p">],</span>     <span class="c1"># 联合输入</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>        <span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span>                              <span class="c1"># 时间步</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>        <span class="n">context</span><span class="o">=</span><span class="n">prompt_embs</span><span class="p">,</span>              <span class="c1"># 文本条件</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>        <span class="n">clip_fea</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">clip_feas</span><span class="p">,</span>          <span class="c1"># 图像条件</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>        <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ys</span><span class="p">,</span>                        <span class="c1"># 图像特征</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>        <span class="o">...</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>    <span class="p">)</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>    <span class="c1"># 调度器更新：x_t → x_{t-1}</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>    <span class="n">noise_obs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">model_output_obs</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">noise_obs</span><span class="p">)</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>    <span class="n">noise_action</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">model_output_action</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">noise_action</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>涉及文件</strong>:
+- DiT 模型: <a href="../groot/vla/model/dreamzero/modules/wan_video_dit_action_casual_chunk/"><code>wan_video_dit_action_casual_chunk.py</code></a> — 因果分块注意力机制
+- 调度器: <a href="../groot/vla/model/dreamzero/modules/flow_match_scheduler/"><code>flow_match_scheduler.py</code></a> 或 <a href="../groot/vla/model/dreamzero/modules/flow_unipc_multistep_scheduler/"><code>flow_unipc_multistep_scheduler.py</code></a>
+- 注意力: <a href="../groot/vla/model/dreamzero/modules/wan2_1_attention/"><code>wan2_1_attention.py</code></a>、<a href="../groot/vla/model/dreamzero/modules/attention/"><code>attention.py</code></a></p>
+<h3 id="65">6.5 提取输出<a class="headerlink" href="#65" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">action_pred</span> <span class="o">=</span> <span class="n">noise_action</span>                              <span class="c1"># (B, action_horizon, action_dim)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">video_pred</span> <span class="o">=</span> <span class="n">noise_obs</span>                                  <span class="c1"># 潜空间，用于自回归下一步</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">return</span> <span class="n">BatchFeature</span><span class="p">(</span><span class="n">action_pred</span><span class="o">=</span><span class="n">action_pred</span><span class="p">,</span> <span class="n">video_pred</span><span class="o">=</span><span class="n">video_pred</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="7">第 7 层：分布式推理协调<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>推理涉及 8 个 GPU 协同工作：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>                    客户端
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>                      │
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>                      ▼
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>┌─────────── Rank 0 (WebSocket 服务) ──────────┐
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>│  接收观测 → gloo 信号广播 → NCCL 数据广播     │
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>│              ↓                                │
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>│     ┌── barrier() ──────────────────────┐     │
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>│     │   lazy_joint_forward_causal()     │     │
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>│     │   (DiT 张量并行 across 8 GPUs)    │     │
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>│     └── barrier() ──────────────────────┘     │
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>│              ↓                                │
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>│  提取动作 → 发送给客户端                       │
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>└───────────────────────────────────────────────┘
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>         ↕ gloo          ↕ NCCL
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>┌─── Rank 1-7 (Worker 循环) ───┐
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>│  等待信号 → 接收数据          │
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>│  → 参与 barrier()            │
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>│  → 执行同一份前向传播         │
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>│  → 等待下一轮信号             │
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>└──────────────────────────────┘
+</code></pre></div>
+<p><strong>两种通信后端</strong>:
+- <strong>gloo (CPU)</strong>：控制信号（0=继续, 1=关闭, 2=空闲等待下个客户端）
+- <strong>NCCL (GPU)</strong>：张量并行中的 GPU 间通信（attention、all-reduce 等）</p>
+<hr />
+<h2 id="_4">推荐阅读顺序<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>基于以上执行流程，建议按以下顺序阅读源码：</p>
+<table>
+<thead>
+<tr>
+<th>顺序</th>
+<th>文件</th>
+<th>理解目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="../root/socket_test_optimized_AR/"><code>socket_test_optimized_AR.py</code></a></td>
+<td>推理入口、分布式初始化、WebSocket 服务</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="../eval_utils/policy_server/"><code>eval_utils/policy_server.py</code></a></td>
+<td>WebSocket 协议、观测/动作格式定义</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="../groot/vla/model/n1_5/sim_policy/"><code>groot/vla/model/n1_5/sim_policy.py</code></a></td>
+<td>模型加载、数据变换、推理编排</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="../groot/vla/model/dreamzero/base_vla/"><code>groot/vla/model/dreamzero/base_vla.py</code></a></td>
+<td>VLA 架构（backbone + action_head）</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="../groot/vla/model/dreamzero/action_head/wan_flow_matching_action_tf/"><code>groot/vla/model/dreamzero/action_head/wan_flow_matching_action_tf.py</code></a></td>
+<td>核心推理：编码器 + Flow Matching 去噪</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="../groot/vla/model/dreamzero/modules/wan_video_dit_action_casual_chunk/"><code>groot/vla/model/dreamzero/modules/wan_video_dit_action_casual_chunk.py</code></a></td>
+<td>DiT 因果分块注意力（最底层计算）</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="../groot/vla/data/transform/"><code>groot/vla/data/transform/</code></a></td>
+<td>数据预处理与反变换</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="../groot/vla/configs/"><code>groot/vla/configs/</code></a></td>
+<td>理解所有超参数配置</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_5">关键概念速查<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>含义</th>
+<th>文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>自回归推理</strong></td>
+<td>每次预测一个 chunk 的视频+动作，将预测视频作为下一次的条件输入</td>
+<td><code>wan_flow_matching_action_tf.py</code></td>
+</tr>
+<tr>
+<td><strong>因果分块注意力</strong></td>
+<td>DiT 中的注意力机制，当前 chunk 只能看到历史 chunk，不能看到未来</td>
+<td><code>wan_video_dit_action_casual_chunk.py</code></td>
+</tr>
+<tr>
+<td><strong>Flow Matching</strong></td>
+<td>替代 DDPM 的生成式方法，学习从噪声到数据的向量场，推理时 ODE 求解</td>
+<td><code>flow_match_scheduler.py</code></td>
+</tr>
+<tr>
+<td><strong>LoRA 合并</strong></td>
+<td>推理时将 LoRA 适配器权重合并到主模型，消除 adapter 额外计算</td>
+<td><code>sim_policy.py:300</code></td>
+</tr>
+<tr>
+<td><strong>DiT 缓存</strong></td>
+<td>缓存历史 chunk 的 KV，避免重复计算，通过 <code>ENABLE_DIT_CACHE</code> 开关控制</td>
+<td><code>wan_video_dit_action_casual_chunk.py</code></td>
+</tr>
+<tr>
+<td><strong>相对动作</strong></td>
+<td>模型预测的是相对于当前状态的增量，需加上当前关节位置得到绝对值</td>
+<td><code>sim_policy.py:unapply()</code></td>
+</tr>
+<tr>
+<td><strong>VRAM 管理</strong></td>
+<td>推理时按需加载/卸载编码器组件到 GPU，节省显存</td>
+<td><code>vram_management.py</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p>阅读建议：先通读本文建立全局执行流程的心智模型，再按推荐阅读顺序逐文件深入。遇到不理解的概念可回到 <a href="../00_background_knowledge/">背景知识</a> 查阅。</p>
+</blockquote>
 
 
 
@@ -6331,12 +6881,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../..", "features": ["navigation.instant", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../../../../../javascripts/mathjax.js"></script>
+        <script src="../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
