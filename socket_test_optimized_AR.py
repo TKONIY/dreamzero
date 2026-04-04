@@ -3,7 +3,6 @@ import logging
 import socket
 import asyncio
 import os
-import http
 import logging
 import time
 import traceback
@@ -17,10 +16,6 @@ from groot.vla.data.schema import EmbodimentTag
 import imageio
 import numpy as np
 
-from openpi_client import base_policy as _base_policy
-from openpi_client import msgpack_numpy
-import websockets.asyncio.server as _server
-import websockets.frames
 from tianshou.data import Batch
 import torch.distributed as dist
 from torch.distributed.device_mesh import DeviceMesh, init_device_mesh
@@ -358,149 +353,34 @@ class ARDroidRoboarenaPolicy:
         self._reset_state(save_video=True)
 
 
-class WebsocketPolicyServer:
-    """Serves a policy using the websocket protocol. See websocket_client_policy.py for a client implementation.
-    Currently only implements the `load` and `infer` methods.
-    """
+class DistributedWorker:
+    """Worker loop for non-rank-0 processes to participate in distributed inference."""
 
     def __init__(
         self,
-        policy: _base_policy.BasePolicy,
-        host: str = "0.0.0.0",
-        port: int | None = None,
-        metadata: dict | None = None,
-        output_dir: str | None = None,
-        signal_group: dist.ProcessGroup | None = None,
+        policy: GrootSimPolicy,
+        signal_group: dist.ProcessGroup,
     ) -> None:
         self._policy = policy
-        self._host = host
-        self._port = port
-        self._metadata = metadata or {}
-        self._output_dir = output_dir
-        logging.getLogger("websockets.server").setLevel(logging.INFO)
-        self.video_across_time = []
-        self._msg_index = 0
         self._signal_group = signal_group
-        # Create output directory if specified
-        if self._output_dir:
-            os.makedirs(self._output_dir, exist_ok=True)
-            os.makedirs(os.path.join(self._output_dir, "inputs"), exist_ok=True)
-    
-    def _save_input_obs(self, obs: dict) -> None:
-        """Save incoming observation images per message.
-        
-        Expected format: THWC (Time, Height, Width, Channel) with 4 frames.
-        Saves each frame as a separate PNG image: HWC format (uint8).
-        
-        Directory structure:
-        output_dir/inputs/{msg_index:06d}_{timestamp}/{obs_key}/f{frame_idx:02d}.png
-        """
-        if not self._output_dir:
-            return
-        timestamp = datetime.datetime.now().strftime("%m_%d_%H_%M_%S")
-        base_dir = os.path.join(self._output_dir, "inputs", f"{self._msg_index:06d}_{timestamp}")
-        try:
-            os.makedirs(base_dir, exist_ok=True)
-        except Exception:
-            return
 
-        for key in ("video.exterior_image_1_left", "video.exterior_image_2_left", "video.wrist_image_left"):
-            if key not in obs:
-                continue
-            value = obs[key]
-            try:
-                # Convert to numpy if tensor
-                if isinstance(value, torch.Tensor):
-                    arr = value.detach().cpu().numpy()
-                else:
-                    arr = np.asarray(value)
-                
-                # Expected format: THWC (Time, Height, Width, Channel)
-                if arr.ndim != 4:
-                    logger.warning(f"obs key '{key}' has shape {arr.shape}, expected 4D (T,H,W,C)")
-                    continue
-                
-                # arr is (T, H, W, C)
-                T, H, W, C = arr.shape
-                
-                # Normalize to uint8
-                if arr.dtype == np.uint8:
-                    frames_u8 = arr
-                else:
-                    f = arr.astype(np.float32)
-                    # Common conventions: [-1,1] or [0,1]
-                    min_val = float(np.nanmin(f))
-                    max_val = float(np.nanmax(f))
-                    if min_val >= -1.1 and max_val <= 1.1:
-                        # Assume [-1,1] range
-                        frames_u8 = ((f + 1.0) * 127.5).clip(0, 255).astype(np.uint8)
-                    else:
-                        # Min-max scaling
-                        denom = (max_val - min_val) if (max_val - min_val) > 1e-6 else 1.0
-                        frames_u8 = ((f - min_val) / denom * 255.0).clip(0, 255).astype(np.uint8)
-                
-                # Save each frame: frames_u8[i] is (H, W, C)
-                key_dir = os.path.join(base_dir, key.replace("/", "_"))
-                os.makedirs(key_dir, exist_ok=True)
-                for frame_idx in range(T):
-                    frame = frames_u8[frame_idx]  # (H, W, C)
-                    # Handle grayscale (H, W) -> (H, W, 1)
-                    if frame.ndim == 2:
-                        frame = np.expand_dims(frame, axis=-1)
-                    imageio.imwrite(os.path.join(key_dir, f"f{frame_idx:02d}.png"), frame)
-                    
-            except Exception as e:
-                logger.warning(f"Failed to save obs key '{key}': {e}")
-                continue
-
-
-
-    def serve_forever(self, rank: int = 0) -> None:
-        asyncio.run(self.run(rank))
-
-    async def run(self, rank: int = 0):
-        if rank == 0:
-            async with _server.serve(
-                self._handler,
-                self._host,
-                self._port,
-                compression=None,
-                max_size=None,
-                process_request=_health_check,
-                ping_interval=None,
-            ) as server:
-                await server.serve_forever()
-        else:
-            # Non-rank-0 processes run a worker loop
-            await self._worker_loop()
-
-    async def _worker_loop(self):
-        """Worker loop for non-rank-0 processes to participate in distributed inference."""
+    async def run(self):
+        """Wait for signals from rank 0 and participate in distributed forward passes."""
         logger.info(f"Worker loop started for rank {dist.get_rank()}")
         signal_tensor = torch.zeros(1, dtype=torch.int32, device='cpu')
         while True:
             try:
-                # Wait for obs broadcast from rank 0
-                # Create a dummy obs dict structure - will be filled by broadcast
-                # obs = {}
-
                 dist.broadcast(signal_tensor, src=0, group=self._signal_group)
 
                 signal = signal_tensor.item()
                 if signal == 1:
                     logger.info(f"Rank {dist.get_rank()} received shutdown signal")
                     break
-
-                # --- ADD THIS ELIF BLOCK ---
                 elif signal == 2:
                     logger.info(f"Rank {dist.get_rank()} received idle signal. Waiting for next client.")
-                    # Loop back to the top and wait for the next signal
                     continue
 
-                # Receive the batch data via broadcast/gather mechanism
-                # This is a simplified version - the actual obs structure needs to be broadcasted
                 batch = self._receive_batch_from_rank0()
-                # Participate in distributed forward pass
                 dist.barrier()
                 with torch.no_grad():
                     result_batch, video_pred = self._policy.lazy_joint_forward_causal(batch)
@@ -515,200 +395,15 @@ class WebsocketPolicyServer:
         """Receive batch data from rank 0 using torch.distributed primitives."""
         import pickle
 
-        # Receive the size of the pickled data first
         size_tensor = torch.zeros(1, dtype=torch.int64, device='cuda')
         dist.broadcast(size_tensor, src=0)
         data_size = size_tensor.item()
 
-        # Receive the actual data
         data_tensor = torch.zeros(data_size, dtype=torch.uint8, device='cuda')
         dist.broadcast(data_tensor, src=0)
 
-        # Deserialize
         obs = pickle.loads(data_tensor.cpu().numpy().tobytes())
         return Batch(obs=obs)
-
-    def _broadcast_batch_to_workers(self, obs):
-        """Broadcast batch data from rank 0 to all other ranks."""
-        import pickle
-
-        # Serialize the obs
-        serialized = pickle.dumps(obs)
-        data_size = len(serialized)
-
-        # Broadcast size first
-        size_tensor = torch.tensor([data_size], dtype=torch.int64, device='cuda')
-        dist.broadcast(size_tensor, src=0)
-
-        # Broadcast data
-        data_tensor = torch.frombuffer(serialized, dtype=torch.uint8).cuda()
-        dist.broadcast(data_tensor, src=0)
-
-    async def _handler(self, websocket: _server.ServerConnection):
-        logger.info(f"Connection from {websocket.remote_address} opened")
-        packer = msgpack_numpy.Packer()
-
-        await websocket.send(packer.pack(self._metadata))
-
-        prev_total_time = None
-        signal_tensor = torch.zeros(1, dtype=torch.int32, device='cpu')
-        
-        try:
-            while True:
-                try:
-                    start_time = time.perf_counter()
-                    data = await websocket.recv()
-                    recv_done = time.perf_counter()
-                    obs = msgpack_numpy.unpackb(data)
-                    print(f"Wait Time: {recv_done - start_time:.2f} seconds")
-                    self._msg_index += 1
-
-                    infer_start_time = time.perf_counter()
-
-                    # Signal other ranks to continue (0 = continue)
-                    signal_tensor.zero_() 
-                    dist.broadcast(signal_tensor, src=0, group=self._signal_group) # <-- USE GLOO GROUP
-
-                    # Broadcast the obs to all ranks for distributed inference
-                    self._broadcast_batch_to_workers(obs)
-                    batch = Batch(obs=obs)
-
-                    # All ranks need to participate in the forward pass
-                    dist.barrier()
-                    forward_start_time = time.perf_counter()
-                    with torch.no_grad():
-                        result_batch, video_pred = self._policy.lazy_joint_forward_causal(batch)
-                    dist.barrier()
-                    print(f"Forward Time: {time.perf_counter() - forward_start_time:.2f} seconds")
-
-                    action_chunk_dict = result_batch.act
-                    video_chunk = video_pred
-
-                    print(f"Inference Time: {time.perf_counter() - infer_start_time:.2f} seconds")
-
-                    self.video_across_time.append(video_chunk)
-
-                    if len(self.video_across_time) > 10:
-                        frame_list = []
-                        video_across_time_cat = torch.cat(self.video_across_time, dim=2)
-                        frames = self._policy.trained_model.action_head.vae.decode(
-                            video_across_time_cat,
-                            tiled=self._policy.trained_model.action_head.tiled,
-                            tile_size=(self._policy.trained_model.action_head.tile_size_height, self._policy.trained_model.action_head.tile_size_width),
-                            tile_stride=(self._policy.trained_model.action_head.tile_stride_height, self._policy.trained_model.action_head.tile_stride_width),
-                        )
-                        frames = rearrange(frames, "B C T H W -> B T H W C")
-                        frames = frames[0]
-                        frames = ((frames.float() + 1) * 127.5).clip(0, 255).cpu().numpy().astype(np.uint8)
-                        # Add each frame individually to the list
-                        for frame in frames:
-                            frame_list.append(frame)
-
-                        sample_frame = frame_list[0]
-                        if len(sample_frame.shape) == 3 and sample_frame.shape[2] in [1, 3, 4]:
-                            # Save all frames as a single MP4 file
-                            save_dir = self._output_dir if self._output_dir else "."
-                            os.makedirs(save_dir, exist_ok=True)
-                            all_mp4_files = [f for f in os.listdir(save_dir) if f.endswith(".mp4")]
-                            timestamp = datetime.datetime.now().strftime("%m_%d_%H_%M_%S")
-                            num_frames = len(frame_list)
-                            n = (num_frames - 1) // 8  # num_frames = 8n+1, so n = (num_frames-1)/8
-                            output_path = os.path.join(save_dir, f'{len(all_mp4_files):06}_{timestamp}_n{n}.mp4')
-                            imageio.mimsave(output_path, frame_list, fps=5, codec='libx264')
-                            print(f"Saved video to: {output_path}")
-                        else:
-                            print(f"Warning: Invalid frame shape {sample_frame.shape}. Expected (H, W, C) with C in [1, 3, 4]. Skipping video save.")
-
-                        self.video_across_time = []
-                    elif self._policy.trained_model.action_head.current_start_frame == 1 + self._policy.trained_model.action_head.num_frame_per_block and len(self.video_across_time) > 1:
-                        print("current_start_frame == 1 + num_frame_per_block and len(self.video_across_time) > 1")
-                        frame_list = []
-                        video_across_time_cat = torch.cat(self.video_across_time[:-1], dim=2)
-                        frames = self._policy.trained_model.action_head.vae.decode(
-                            video_across_time_cat,
-                            tiled=self._policy.trained_model.action_head.tiled,
-                            tile_size=(self._policy.trained_model.action_head.tile_size_height, self._policy.trained_model.action_head.tile_size_width),
-                            tile_stride=(self._policy.trained_model.action_head.tile_stride_height, self._policy.trained_model.action_head.tile_stride_width),
-                        )
-                        frames = rearrange(frames, "B C T H W -> B T H W C")
-                        frames = frames[0]
-                        frames = ((frames.float() + 1) * 127.5).clip(0, 255).cpu().numpy().astype(np.uint8)
-                        # Add each frame individually to the list
-                        for frame in frames:
-                            frame_list.append(frame)
-                        sample_frame = frame_list[0]
-                        if len(sample_frame.shape) == 3 and sample_frame.shape[2] in [1, 3, 4]:
-                            # Save all frames as a single MP4 file
-                            save_dir = self._output_dir if self._output_dir else "."
-                            os.makedirs(save_dir, exist_ok=True)
-                            all_mp4_files = [f for f in os.listdir(save_dir) if f.endswith(".mp4")]
-                            timestamp = datetime.datetime.now().strftime("%m_%d_%H_%M_%S")
-                            num_frames = len(frame_list)
-                            n = (num_frames - 1) // 8  # num_frames = 8n+1, so n = (num_frames-1)/8
-                            output_path = os.path.join(save_dir, f'{len(all_mp4_files):06}_{timestamp}_n{n}.mp4')
-                            imageio.mimsave(output_path, frame_list, fps=5, codec='libx264')
-                            print(f"Saved video to: {output_path}")
-                        self.video_across_time = [video_chunk]
-
-                    
-                    def batch_to_dict(batch):
-                        out = {}
-                        for k in dir(batch):
-                            if not k.startswith("action."):
-                                continue
-                            out[k] = getattr(batch, k)
-                        return out
-                    action_chunk_dict = batch_to_dict(action_chunk_dict)
-                    await websocket.send(packer.pack(action_chunk_dict))
-
-                except websockets.ConnectionClosed:
-                    logger.info(f"Connection from {websocket.remote_address} closed")
-                    if len(self.video_across_time) > 0:
-                        frame_list = []
-                        video_across_time_cat = torch.cat(self.video_across_time, dim=2)
-                        frames = self._policy.trained_model.action_head.vae.decode(
-                            video_across_time_cat,
-                            tiled=self._policy.trained_model.action_head.tiled,
-                            tile_size=(self._policy.trained_model.action_head.tile_size_height, self._policy.trained_model.action_head.tile_size_width),
-                            tile_stride=(self._policy.trained_model.action_head.tile_stride_height, self._policy.trained_model.action_head.tile_stride_width),
-                        )
-                        frames = rearrange(frames, "B C T H W -> B T H W C")
-                        frames = frames[0]
-                        frames = ((frames.float() + 1) * 127.5).clip(0, 255).cpu().numpy().astype(np.uint8)
-                        # Add each frame individually to the list
-                        for frame in frames:
-                            frame_list.append(frame)
-
-                        sample_frame = frame_list[0]
-                        if len(sample_frame.shape) == 3 and sample_frame.shape[2] in [1, 3, 4]:
-                            # Save all frames as a single MP4 file
-                            save_dir = self._output_dir if self._output_dir else "."
-                            os.makedirs(save_dir, exist_ok=True)
-                            all_mp4_files = [f for f in os.listdir(save_dir) if f.endswith(".mp4")]
-                            timestamp = datetime.datetime.now().strftime("%m_%d_%H_%M_%S")
-                            num_frames = len(frame_list)
-                            n = (num_frames - 1) // 8  # num_frames = 8n+1, so n = (num_frames-1)/8
-                            output_path = os.path.join(save_dir, f'{len(all_mp4_files):06}_{timestamp}_n{n}.mp4')
-                            imageio.mimsave(output_path, frame_list, fps=5, codec='libx264')
-                            print(f"Saved video to: {output_path}")
-                        else:
-                            print(f"Warning: Invalid frame shape {sample_frame.shape}. Expected (H, W, C) with C in [1, 3, 4]. Skipping video save.")
-
-                    self.video_across_time = []
-                    break
-                except Exception:
-                    await websocket.send(traceback.format_exc())
-                    await websocket.close(
-                        code=websockets.frames.CloseCode.INTERNAL_ERROR,
-                        reason="Internal server error. Traceback included in previous frame.",
-                    )
-                    raise
-        finally:
-            logger.info(f"Rank 0: Client session ended. Sending idle signal (2) to workers.")
-            signal_tensor.fill_(2)  # Set tensor value to 2
-            dist.broadcast(signal_tensor, src=0, group=self._signal_group)
-            # When connection closes, signal other ranks to continue waiting for next connection
-            # (or implement proper shutdown if needed)
 
 
 def init_mesh() -> DeviceMesh:
@@ -729,13 +424,6 @@ def init_mesh() -> DeviceMesh:
     print(f"Rank {rank}/{world_size} (PID: {os.getpid()}) using device {device}")
 
     return mesh
-
-def _health_check(connection: _server.ServerConnection, request: _server.Request) -> _server.Response | None:
-    if request.path == "/healthz":
-        return connection.respond(http.HTTPStatus.OK, "OK\n")
-    # Continue with the normal request handling.
-    return None
-
 
 def main(args: Args) -> None:
     # Set environment variable for DIT cache.
@@ -816,17 +504,11 @@ def main(args: Args) -> None:
         )
         roboarena_server.serve_forever()
     else:
-        # Non-rank-0 processes need to run worker loop for distributed inference
-        # We'll use the existing WebsocketPolicyServer's worker loop mechanism
-        server = WebsocketPolicyServer(
+        worker = DistributedWorker(
             policy=policy,
-            host="0.0.0.0",
-            port=args.port,
-            metadata=policy_metadata,
-            output_dir=output_dir,
             signal_group=signal_group,
         )
-        asyncio.run(server._worker_loop())
+        asyncio.run(worker.run())
     
 
 
